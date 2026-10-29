@@ -1,0 +1,1888 @@
+[
+  {
+    "id": "skill-cpp",
+    "name": "C++",
+    "category": "Languages",
+    "reference": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-raii",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "C++ supports efficient native programs with explicit control over resources. It suits performance-sensitive algorithms, but these three web projects do not demonstrate its use.",
+      "An object's constructor acquires a resource and its destructor releases it when scope ends, including exception unwinding. Prefer containers and smart pointers to manual new/delete.",
+      "Illustrative example: insert IDs into an unordered_set and retain the first occurrence in a vector. Expected time is O(n), with O(n) extra memory; hash collisions can worsen time.",
+      "A vector offers contiguous storage and fast indexed access; growth can invalidate references. A list supports local insertion with valid iterators but costs node allocations and cache locality."
+    ],
+    "hinglish": [
+      "C++ native programs aur resource control ke liye useful hai. Performance wale algorithms mein kaam aata hai; in teen web projects mein iska use verify nahi hua.",
+      "RAII mein object resource leta hai aur scope khatam hone par destructor release karta hai, exception mein bhi. Manual new/delete ke badle containers aur smart pointers prefer karo.",
+      "Sample: IDs unordered_set mein daalo aur pehli occurrence vector mein rakho. Expected O(n) time aur O(n) memory lagegi; collisions se time badh sakta hai.",
+      "Vector contiguous hai aur index access fast hai, par grow hone se references invalid ho sakte hain. List insertion aasaan karti hai, par allocations aur cache cost badhta hai."
+    ],
+    "questions": [
+      {
+        "question": "When would you choose C++ for a problem?",
+        "english": "C++ supports efficient native programs with explicit control over resources. It suits performance-sensitive algorithms, but these three web projects do not demonstrate its use.",
+        "hinglish": "C++ native programs aur resource control ke liye useful hai. Performance wale algorithms mein kaam aata hai; in teen web projects mein iska use verify nahi hua."
+      },
+      {
+        "question": "How does RAII prevent resource leaks?",
+        "english": "An object's constructor acquires a resource and its destructor releases it when scope ends, including exception unwinding. Prefer containers and smart pointers to manual new/delete.",
+        "hinglish": "RAII mein object resource leta hai aur scope khatam hone par destructor release karta hai, exception mein bhi. Manual new/delete ke badle containers aur smart pointers prefer karo."
+      },
+      {
+        "question": "How would you deduplicate IDs efficiently?",
+        "english": "Illustrative example: insert IDs into an unordered_set and retain the first occurrence in a vector. Expected time is O(n), with O(n) extra memory; hash collisions can worsen time.",
+        "hinglish": "Sample: IDs unordered_set mein daalo aur pehli occurrence vector mein rakho. Expected O(n) time aur O(n) memory lagegi; collisions se time badh sakta hai."
+      },
+      {
+        "question": "What is the tradeoff between vector and linked list?",
+        "english": "A vector offers contiguous storage and fast indexed access; growth can invalidate references. A list supports local insertion with valid iterators but costs node allocations and cache locality.",
+        "hinglish": "Vector contiguous hai aur index access fast hai, par grow hone se references invalid ho sakte hain. List insertion aasaan karti hai, par allocations aur cache cost badhta hai."
+      },
+      {
+        "question": "How would you investigate a crash after vector growth?",
+        "english": "Reproduce the smallest case, check indices and iterator lifetimes, and run AddressSanitizer or UndefinedBehaviorSanitizer. A reference retained across reallocation may point to freed storage.",
+        "hinglish": "Small case reproduce karo, indices aur iterator lifetime dekho, phir sanitizers chalao. Reallocation ke baad purana reference freed memory ko point kar sakta hai."
+      }
+    ]
+  },
+  {
+    "id": "skill-typescript",
+    "name": "TypeScript",
+    "category": "Languages",
+    "reference": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "evidence": "MailLoop, PurePin and BuzzLine: package.json and src/**/*.ts(x).",
+    "english": [
+      "TypeScript checks static types before execution and improves editor feedback. It does not validate incoming JSON at runtime because its type annotations are erased.",
+      "Checks such as typeof, property tests and discriminant fields refine a union inside a branch. A discriminated result can separate success data from an error without unsafe casts.",
+      "Illustrative PurePin extension: model {ok:true,images:Image[]} or {ok:false,error:string}; narrow on ok before accessing images, and validate the server boundary separately.",
+      "unknown requires validation or narrowing before use. any disables useful checks and can hide null or shape errors; static types alone still cannot guarantee business rules."
+    ],
+    "hinglish": [
+      "TypeScript execution se pehle type mistakes pakadta hai aur editor help deta hai. Types erase ho jaate hain, isliye incoming JSON runtime par validate nahi hota.",
+      "typeof ya discriminant field check karke branch ke andar union narrow hota hai. Success aur error ko alag result shapes mein rakho, unsafe cast ki zaroorat kam hogi.",
+      "PurePin ke sample extension mein success par images aur failure par error wala union banao. ok check ke baad images padho; server boundary par validation alag karo.",
+      "unknown ko use karne se pehle check karna padta hai. any checks ko bypass karta hai aur galat shape chhup sakti hai; business rules types se guarantee nahi hote."
+    ],
+    "questions": [
+      {
+        "question": "What does TypeScript add to JavaScript?",
+        "english": "TypeScript checks static types before execution and improves editor feedback. It does not validate incoming JSON at runtime because its type annotations are erased.",
+        "hinglish": "TypeScript execution se pehle type mistakes pakadta hai aur editor help deta hai. Types erase ho jaate hain, isliye incoming JSON runtime par validate nahi hota."
+      },
+      {
+        "question": "How does narrowing make union types usable?",
+        "english": "Checks such as typeof, property tests and discriminant fields refine a union inside a branch. A discriminated result can separate success data from an error without unsafe casts.",
+        "hinglish": "typeof ya discriminant field check karke branch ke andar union narrow hota hai. Success aur error ko alag result shapes mein rakho, unsafe cast ki zaroorat kam hogi."
+      },
+      {
+        "question": "How would you type a downloader response?",
+        "english": "Illustrative PurePin extension: model {ok:true,images:Image[]} or {ok:false,error:string}; narrow on ok before accessing images, and validate the server boundary separately.",
+        "hinglish": "PurePin ke sample extension mein success par images aur failure par error wala union banao. ok check ke baad images padho; server boundary par validation alag karo."
+      },
+      {
+        "question": "Why prefer unknown to any for external data?",
+        "english": "unknown requires validation or narrowing before use. any disables useful checks and can hide null or shape errors; static types alone still cannot guarantee business rules.",
+        "hinglish": "unknown ko use karne se pehle check karna padta hai. any checks ko bypass karta hai aur galat shape chhup sakti hai; business rules types se guarantee nahi hote."
+      },
+      {
+        "question": "Why can a typed API response still crash the UI?",
+        "english": "A type assertion does not transform data. Inspect the actual response, validate its schema, handle missing fields and keep the client contract aligned with the server.",
+        "hinglish": "Type assertion data ko badalta nahi. Actual response dekho, schema validate karo, missing fields handle karo aur client-server contract align rakho."
+      }
+    ]
+  },
+  {
+    "id": "skill-javascript",
+    "name": "JavaScript",
+    "category": "Languages",
+    "reference": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "evidence": "BuzzLine/socket-server/server.js; all three projects use JavaScript runtimes.",
+    "english": [
+      "JavaScript provides functions, objects and asynchronous APIs for browser interaction and server orchestration. Browser DOM APIs and Node.js APIs differ even though the language is shared.",
+      "Synchronous work finishes first; promise callbacks run as microtasks before the next task. Await suspends an async function, not the whole runtime; CPU-heavy loops still block it.",
+      "Illustrative BuzzLine search improvement: clear the previous timer and schedule the latest query. Also cancel or ignore stale fetch responses; debounce alone does not prevent response races.",
+      "Use Promise.all for independent operations when all results are required. It rejects on the first rejection but does not cancel other work; use sequential awaits for dependencies or rate limits."
+    ],
+    "hinglish": [
+      "JavaScript browser UI aur server orchestration dono mein kaam aata hai. Language same hai, par browser DOM aur Node.js APIs alag hain.",
+      "Pehle synchronous code chalega, phir promise microtasks, phir next task. Await sirf async function rokta hai; heavy CPU loop runtime block kar sakta hai.",
+      "BuzzLine search ke sample improvement mein purana timer clear karke latest query schedule karo. Stale response ignore ya cancel bhi karo; debounce akela race nahi rokta.",
+      "Independent operations ke saare results chahiye toh Promise.all use karo. Pehli rejection par reject hota hai, baaki work cancel nahi hota. Dependencies ya rate limits mein sequential await better hai."
+    ],
+    "questions": [
+      {
+        "question": "Why is JavaScript useful on both client and server?",
+        "english": "JavaScript provides functions, objects and asynchronous APIs for browser interaction and server orchestration. Browser DOM APIs and Node.js APIs differ even though the language is shared.",
+        "hinglish": "JavaScript browser UI aur server orchestration dono mein kaam aata hai. Language same hai, par browser DOM aur Node.js APIs alag hain."
+      },
+      {
+        "question": "How do promises interact with the event loop?",
+        "english": "Synchronous work finishes first; promise callbacks run as microtasks before the next task. Await suspends an async function, not the whole runtime; CPU-heavy loops still block it.",
+        "hinglish": "Pehle synchronous code chalega, phir promise microtasks, phir next task. Await sirf async function rokta hai; heavy CPU loop runtime block kar sakta hai."
+      },
+      {
+        "question": "How would you debounce user search?",
+        "english": "Illustrative BuzzLine search improvement: clear the previous timer and schedule the latest query. Also cancel or ignore stale fetch responses; debounce alone does not prevent response races.",
+        "hinglish": "BuzzLine search ke sample improvement mein purana timer clear karke latest query schedule karo. Stale response ignore ya cancel bhi karo; debounce akela race nahi rokta."
+      },
+      {
+        "question": "When would you use Promise.all rather than sequential await?",
+        "english": "Use Promise.all for independent operations when all results are required. It rejects on the first rejection but does not cancel other work; use sequential awaits for dependencies or rate limits.",
+        "hinglish": "Independent operations ke saare results chahiye toh Promise.all use karo. Pehli rejection par reject hota hai, baaki work cancel nahi hota. Dependencies ya rate limits mein sequential await better hai."
+      },
+      {
+        "question": "How would you debug a handler using stale state?",
+        "english": "Inspect the closure and when it was created. Use the current event value or a functional state update, and clean up timers or subscriptions when their owner changes.",
+        "hinglish": "Closure kab bana aur kaunsi state capture hui, dekho. Current event value ya functional state update use karo; owner badalne par timer aur subscription clean karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-react",
+    "name": "React",
+    "category": "Frontend",
+    "reference": "https://react.dev/learn",
+    "evidence": "All three projects: src/components and package.json.",
+    "english": [
+      "Components express UI as reusable functions of props and state. React updates the rendered tree when state changes; it does not automatically provide routing or a database.",
+      "Keys identify siblings across renders so React can preserve the correct component state. Use stable record IDs; array indices can attach state to the wrong item after reordering.",
+      "Illustrative PurePin UI: keep URL and request status in state, derive disabled controls from that status, and show a useful error. Prevent stale requests from replacing newer results.",
+      "Values computed entirely from current props and state can usually be derived during render. Effects are for synchronization with external systems; extra effects can create redundant renders and loops."
+    ],
+    "hinglish": [
+      "Components props aur state se UI banate hain, jise reuse kar sakte ho. State badalne par React tree update karta hai; routing aur database alag concerns hain.",
+      "Keys se React siblings ki identity pehchanta hai aur sahi state preserve karta hai. Stable record ID use karo; reorder hone par index key galat item ki state jod sakti hai.",
+      "PurePin ke sample UI mein URL aur request status state mein rakho. Usi se disabled controls aur error derive karo; purana response naya result overwrite na kare.",
+      "Current props aur state se value nikal sakti hai toh render mein derive karo. Effects external systems sync karne ke liye hain; unnecessary effects extra renders aur loops bana sakte hain."
+    ],
+    "questions": [
+      {
+        "question": "What problem do React components solve?",
+        "english": "Components express UI as reusable functions of props and state. React updates the rendered tree when state changes; it does not automatically provide routing or a database.",
+        "hinglish": "Components props aur state se UI banate hain, jise reuse kar sakte ho. State badalne par React tree update karta hai; routing aur database alag concerns hain."
+      },
+      {
+        "question": "Why are keys important when rendering a list?",
+        "english": "Keys identify siblings across renders so React can preserve the correct component state. Use stable record IDs; array indices can attach state to the wrong item after reordering.",
+        "hinglish": "Keys se React siblings ki identity pehchanta hai aur sahi state preserve karta hai. Stable record ID use karo; reorder hone par index key galat item ki state jod sakti hai."
+      },
+      {
+        "question": "How would you manage a downloader form?",
+        "english": "Illustrative PurePin UI: keep URL and request status in state, derive disabled controls from that status, and show a useful error. Prevent stale requests from replacing newer results.",
+        "hinglish": "PurePin ke sample UI mein URL aur request status state mein rakho. Usi se disabled controls aur error derive karo; purana response naya result overwrite na kare."
+      },
+      {
+        "question": "When is an effect unnecessary?",
+        "english": "Values computed entirely from current props and state can usually be derived during render. Effects are for synchronization with external systems; extra effects can create redundant renders and loops.",
+        "hinglish": "Current props aur state se value nikal sakti hai toh render mein derive karo. Effects external systems sync karne ke liye hain; unnecessary effects extra renders aur loops bana sakte hain."
+      },
+      {
+        "question": "Why do subscriptions fire twice during development?",
+        "english": "Development Strict Mode may run an extra setup-cleanup cycle to expose missing cleanup. Return an unsubscribe function and make setup safe; do not simply disable the check.",
+        "hinglish": "Development Strict Mode extra setup-cleanup cycle chala sakta hai. Effect se unsubscribe cleanup return karo aur setup safe banao; check hata dena real fix nahi hai."
+      }
+    ]
+  },
+  {
+    "id": "skill-nextjs",
+    "name": "Next.js",
+    "category": "Frontend",
+    "reference": "https://nextjs.org/docs/app",
+    "evidence": "All three projects: src/app and package.json.",
+    "english": [
+      "Next.js supplies routing, server rendering and server endpoints around React. The projects use the App Router; framework behavior depends on the installed version and route configuration.",
+      "Server Components execute on the server and can access server resources. A use client boundary enables browser interaction and hooks; props crossing that boundary must be serializable.",
+      "In a MailLoop-style design, read secrets only in server modules or route handlers and return safe data to clients. A client component must never receive an OAuth refresh token.",
+      "Caching reduces repeated work but can expose stale data if invalidation is wrong. Personalized responses need deliberate isolation; do not assume every fetch or route is cached by default."
+    ],
+    "hinglish": [
+      "Next.js React ke saath routing, server rendering aur endpoints deta hai. Projects App Router use karte hain; behavior installed version aur route config par depend karega.",
+      "Server Components server par chalte hain aur server resources use kar sakte hain. use client boundary browser hooks aur interaction deti hai; boundary ke props serializable hone chahiye.",
+      "MailLoop jaise design mein secrets server modules ya route handlers mein padho aur client ko safe data do. Client component ko OAuth refresh token mat bhejo.",
+      "Caching repeated work ghatati hai, par invalidation galat ho toh stale data milta hai. Personalized data isolate karo; har fetch ya route ko default cached assume mat karo."
+    ],
+    "questions": [
+      {
+        "question": "What does Next.js add to React?",
+        "english": "Next.js supplies routing, server rendering and server endpoints around React. The projects use the App Router; framework behavior depends on the installed version and route configuration.",
+        "hinglish": "Next.js React ke saath routing, server rendering aur endpoints deta hai. Projects App Router use karte hain; behavior installed version aur route config par depend karega."
+      },
+      {
+        "question": "How do Server and Client Components differ?",
+        "english": "Server Components execute on the server and can access server resources. A use client boundary enables browser interaction and hooks; props crossing that boundary must be serializable.",
+        "hinglish": "Server Components server par chalte hain aur server resources use kar sakte hain. use client boundary browser hooks aur interaction deti hai; boundary ke props serializable hone chahiye."
+      },
+      {
+        "question": "Where would you place Gmail credentials?",
+        "english": "In a MailLoop-style design, read secrets only in server modules or route handlers and return safe data to clients. A client component must never receive an OAuth refresh token.",
+        "hinglish": "MailLoop jaise design mein secrets server modules ya route handlers mein padho aur client ko safe data do. Client component ko OAuth refresh token mat bhejo."
+      },
+      {
+        "question": "What tradeoff comes with caching server data?",
+        "english": "Caching reduces repeated work but can expose stale data if invalidation is wrong. Personalized responses need deliberate isolation; do not assume every fetch or route is cached by default.",
+        "hinglish": "Caching repeated work ghatati hai, par invalidation galat ho toh stale data milta hai. Personalized data isolate karo; har fetch ya route ko default cached assume mat karo."
+      },
+      {
+        "question": "How would you debug a hydration mismatch?",
+        "english": "Compare server HTML with the first client render. Remove render-time randomness, browser-only checks or locale-dependent output from that shared pass, and inspect invalid HTML nesting.",
+        "hinglish": "Server HTML ko first client render se compare karo. Random values, browser-only checks aur locale differences ko shared render se hatao; invalid HTML nesting bhi check karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-tailwind-css",
+    "name": "Tailwind CSS",
+    "category": "Frontend",
+    "reference": "https://tailwindcss.com/docs/styling-with-utility-classes",
+    "evidence": "All three projects: src/app/globals.css and package.json (Tailwind v4).",
+    "english": [
+      "Tailwind composes small CSS utilities directly in markup, keeping visual decisions near components. It still produces CSS and requires deliberate accessibility and design choices.",
+      "Utilities such as md:flex apply from the configured breakpoint upward. Base classes define the smaller layout; state variants such as focus-visible target interaction states.",
+      "Illustrative PurePin layout: grid grid-cols-1 md:grid-cols-2 with gaps, then constrain images and long URLs. Test real narrow screens rather than relying only on breakpoint names.",
+      "The scanner needs discoverable class strings. Map variants to complete literal classes instead of building fragments such as bg-${color}-500; utilities also do not replace semantic HTML."
+    ],
+    "hinglish": [
+      "Tailwind chhoti CSS utilities markup mein compose karta hai. Ye CSS hi banata hai; accessibility aur design choices phir bhi sochni padti hain.",
+      "md:flex configured breakpoint se upar lagta hai. Base classes smaller layout banati hain; focus-visible jaise variants interaction state target karte hain.",
+      "PurePin sample layout mein one-column grid aur md par two columns rakho. Images aur long URLs constrain karo; actual narrow screen par test bhi karo.",
+      "Scanner ko complete class strings milni chahiye. bg-${color}-500 jaise fragments banane ke badle full literal classes map karo; semantic HTML ki zaroorat bhi rahegi."
+    ],
+    "questions": [
+      {
+        "question": "Why use utility classes for styling?",
+        "english": "Tailwind composes small CSS utilities directly in markup, keeping visual decisions near components. It still produces CSS and requires deliberate accessibility and design choices.",
+        "hinglish": "Tailwind chhoti CSS utilities markup mein compose karta hai. Ye CSS hi banata hai; accessibility aur design choices phir bhi sochni padti hain."
+      },
+      {
+        "question": "How do responsive variants work?",
+        "english": "Utilities such as md:flex apply from the configured breakpoint upward. Base classes define the smaller layout; state variants such as focus-visible target interaction states.",
+        "hinglish": "md:flex configured breakpoint se upar lagta hai. Base classes smaller layout banati hain; focus-visible jaise variants interaction state target karte hain."
+      },
+      {
+        "question": "How would you build a responsive result grid?",
+        "english": "Illustrative PurePin layout: grid grid-cols-1 md:grid-cols-2 with gaps, then constrain images and long URLs. Test real narrow screens rather than relying only on breakpoint names.",
+        "hinglish": "PurePin sample layout mein one-column grid aur md par two columns rakho. Images aur long URLs constrain karo; actual narrow screen par test bhi karo."
+      },
+      {
+        "question": "Why can dynamically assembled class names fail?",
+        "english": "The scanner needs discoverable class strings. Map variants to complete literal classes instead of building fragments such as bg-${color}-500; utilities also do not replace semantic HTML.",
+        "hinglish": "Scanner ko complete class strings milni chahiye. bg-${color}-500 jaise fragments banane ke badle full literal classes map karo; semantic HTML ki zaroorat bhi rahegi."
+      },
+      {
+        "question": "How would you investigate a missing utility in production?",
+        "english": "Check the installed Tailwind version, imported stylesheet and scanned source locations. Inspect generated CSS and class conflicts before adding specificity overrides.",
+        "hinglish": "Installed version, imported stylesheet aur scan locations check karo. Specificity override se pehle generated CSS aur conflicting classes inspect karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-shadcn-ui",
+    "name": "shadcn/ui",
+    "category": "Frontend",
+    "reference": "https://ui.shadcn.com/docs",
+    "evidence": "PurePin/components.json and src/components/ui; BuzzLine/src/components/ui.",
+    "english": [
+      "It distributes component source into your project so you can own and edit it. Accessibility primitives help, but custom changes still need keyboard and screen reader checks.",
+      "Variant definitions map semantic options such as destructive or outline to class sets; class-merging utilities combine overrides. Behavior and HTML semantics remain the component author's responsibility.",
+      "Illustrative implementation: provide a title, description, cancel and explicit confirm action, return focus to the opener, and prevent duplicate submissions while pending.",
+      "Customization is easy, but upstream fixes do not necessarily arrive through one package upgrade. Compare changes and retest local styling, semantics and primitive dependencies."
+    ],
+    "hinglish": [
+      "shadcn/ui component source project mein deta hai, jise own aur edit kar sakte ho. Primitives help karte hain, par custom changes ki keyboard aur screen reader checking zaroori hai.",
+      "Variants destructive ya outline jaise options ko class sets se map karte hain. Merging utility overrides combine karti hai; behavior aur HTML semantics author ko sambhalne hain.",
+      "Sample dialog mein title, description, cancel aur clear confirm action do. Close par opener ko focus lautao aur pending request mein duplicate submission roko.",
+      "Source own karne se customization easy hai, par upstream fix ek package upgrade se zaroori nahi aayega. Changes compare karke local styles, semantics aur dependencies test karo."
+    ],
+    "questions": [
+      {
+        "question": "What distinguishes shadcn/ui from a closed component package?",
+        "english": "It distributes component source into your project so you can own and edit it. Accessibility primitives help, but custom changes still need keyboard and screen reader checks.",
+        "hinglish": "shadcn/ui component source project mein deta hai, jise own aur edit kar sakte ho. Primitives help karte hain, par custom changes ki keyboard aur screen reader checking zaroori hai."
+      },
+      {
+        "question": "How do variants customize a button?",
+        "english": "Variant definitions map semantic options such as destructive or outline to class sets; class-merging utilities combine overrides. Behavior and HTML semantics remain the component author's responsibility.",
+        "hinglish": "Variants destructive ya outline jaise options ko class sets se map karte hain. Merging utility overrides combine karti hai; behavior aur HTML semantics author ko sambhalne hain."
+      },
+      {
+        "question": "How would you adapt a dialog for a confirmation flow?",
+        "english": "Illustrative implementation: provide a title, description, cancel and explicit confirm action, return focus to the opener, and prevent duplicate submissions while pending.",
+        "hinglish": "Sample dialog mein title, description, cancel aur clear confirm action do. Close par opener ko focus lautao aur pending request mein duplicate submission roko."
+      },
+      {
+        "question": "What is the maintenance cost of owning source?",
+        "english": "Customization is easy, but upstream fixes do not necessarily arrive through one package upgrade. Compare changes and retest local styling, semantics and primitive dependencies.",
+        "hinglish": "Source own karne se customization easy hai, par upstream fix ek package upgrade se zaroori nahi aayega. Changes compare karke local styles, semantics aur dependencies test karo."
+      },
+      {
+        "question": "How would you fix a dialog that traps focus incorrectly?",
+        "english": "Check primitive composition, portals and nested dialogs, then test Tab, Shift+Tab and Escape. Ensure trigger and content primitives belong to a compatible implementation.",
+        "hinglish": "Primitives, portals aur nested dialogs check karo; Tab, Shift+Tab aur Escape test karo. Trigger aur content compatible implementation ke hone chahiye."
+      }
+    ]
+  },
+  {
+    "id": "skill-html5",
+    "name": "HTML5",
+    "category": "Frontend",
+    "reference": "https://html.spec.whatwg.org/multipage/",
+    "evidence": "All three projects: JSX/TSX markup in src/app and src/components.",
+    "english": [
+      "Native elements communicate structure and behavior to browsers and assistive technology. Use buttons for actions and anchors for navigation instead of click handlers on generic divs.",
+      "A label associated through for/id gives a control an accessible name and a larger activation target. Placeholders disappear during typing and cannot replace persistent labels.",
+      "Use details with a summary, then place answer content inside. This gives native keyboard activation and disclosure state; choose heading levels that fit the surrounding document.",
+      "required and input types catch some formatting problems, but requests can bypass them. Validate again on the server and provide clear, associated error messages."
+    ],
+    "hinglish": [
+      "Semantic HTML browser aur assistive tools ko structure batata hai. Action ke liye button aur navigation ke liye anchor use karo; generic div par sirf click handler kaafi nahi.",
+      "for/id se linked label accessible name aur bada click target deta hai. Placeholder typing par gayab ho jaata hai, isliye persistent label ka replacement nahi hai.",
+      "Answer ke liye details aur summary use karo, content andar rakho. Native keyboard activation aur disclosure state milti hai; headings document hierarchy ke hisaab se rakho.",
+      "required aur input types basic format pakadte hain, par request unhe bypass kar sakti hai. Server par validation repeat karo aur clear linked error do."
+    ],
+    "questions": [
+      {
+        "question": "Why does semantic HTML matter?",
+        "english": "Native elements communicate structure and behavior to browsers and assistive technology. Use buttons for actions and anchors for navigation instead of click handlers on generic divs.",
+        "hinglish": "Semantic HTML browser aur assistive tools ko structure batata hai. Action ke liye button aur navigation ke liye anchor use karo; generic div par sirf click handler kaafi nahi."
+      },
+      {
+        "question": "How do labels improve forms?",
+        "english": "A label associated through for/id gives a control an accessible name and a larger activation target. Placeholders disappear during typing and cannot replace persistent labels.",
+        "hinglish": "for/id se linked label accessible name aur bada click target deta hai. Placeholder typing par gayab ho jaata hai, isliye persistent label ka replacement nahi hai."
+      },
+      {
+        "question": "How would you make an expandable interview answer?",
+        "english": "Use details with a summary, then place answer content inside. This gives native keyboard activation and disclosure state; choose heading levels that fit the surrounding document.",
+        "hinglish": "Answer ke liye details aur summary use karo, content andar rakho. Native keyboard activation aur disclosure state milti hai; headings document hierarchy ke hisaab se rakho."
+      },
+      {
+        "question": "What are the limits of browser form validation?",
+        "english": "required and input types catch some formatting problems, but requests can bypass them. Validate again on the server and provide clear, associated error messages.",
+        "hinglish": "required aur input types basic format pakadte hain, par request unhe bypass kar sakti hai. Server par validation repeat karo aur clear linked error do."
+      },
+      {
+        "question": "Why might a form button unexpectedly submit?",
+        "english": "A button inside a form defaults to submit. Use type=button for secondary actions and check nested forms or event handling before suppressing all form submission behavior.",
+        "hinglish": "Form ke andar button ka default submit hota hai. Secondary action mein type=button do; nested forms aur events check karo, saari submission behavior disable mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-css3",
+    "name": "CSS3",
+    "category": "Frontend",
+    "reference": "https://www.w3.org/Style/CSS/",
+    "evidence": "All three projects: src/app/globals.css.",
+    "english": [
+      "CSS controls layout, typography and visual states separately from content. Modern CSS is a set of evolving modules, not one single frozen CSS3 implementation.",
+      "Origin, importance and cascade layers are resolved before selector specificity; source order breaks remaining ties. Inspect computed rules rather than assuming the longest selector always wins.",
+      "Illustrative layout: allow the containing grid item to shrink with min-width:0, constrain the panel width, and put overflow-x:auto on pre while preserving whitespace.",
+      "Grid suits two-dimensional alignment across rows and columns; Flexbox suits a primary axis. Both support responsive layouts; choose based on relationships rather than a blanket preference."
+    ],
+    "hinglish": [
+      "CSS layout, typography aur visual states control karta hai. Modern CSS evolving modules ka set hai, ek fixed CSS3 implementation nahi.",
+      "Origin, importance aur layers specificity se pehle resolve hote hain; baaki tie source order todta hai. Computed rules dekho, longest selector ko hamesha winner mat samjho.",
+      "Sample layout mein grid item par min-width:0, panel ki width constrain aur pre par overflow-x:auto do. Whitespace preserve rahe aur phone viewport na phaile.",
+      "Rows aur columns ki shared alignment ke liye Grid, ek primary axis ke liye Flexbox useful hai. Dono responsive hain; relation ke hisaab se choose karo."
+    ],
+    "questions": [
+      {
+        "question": "What responsibilities belong to CSS?",
+        "english": "CSS controls layout, typography and visual states separately from content. Modern CSS is a set of evolving modules, not one single frozen CSS3 implementation.",
+        "hinglish": "CSS layout, typography aur visual states control karta hai. Modern CSS evolving modules ka set hai, ek fixed CSS3 implementation nahi."
+      },
+      {
+        "question": "How do cascade and specificity interact?",
+        "english": "Origin, importance and cascade layers are resolved before selector specificity; source order breaks remaining ties. Inspect computed rules rather than assuming the longest selector always wins.",
+        "hinglish": "Origin, importance aur layers specificity se pehle resolve hote hain; baaki tie source order todta hai. Computed rules dekho, longest selector ko hamesha winner mat samjho."
+      },
+      {
+        "question": "How would you keep a code panel inside a phone viewport?",
+        "english": "Illustrative layout: allow the containing grid item to shrink with min-width:0, constrain the panel width, and put overflow-x:auto on pre while preserving whitespace.",
+        "hinglish": "Sample layout mein grid item par min-width:0, panel ki width constrain aur pre par overflow-x:auto do. Whitespace preserve rahe aur phone viewport na phaile."
+      },
+      {
+        "question": "When would you choose Grid over Flexbox?",
+        "english": "Grid suits two-dimensional alignment across rows and columns; Flexbox suits a primary axis. Both support responsive layouts; choose based on relationships rather than a blanket preference.",
+        "hinglish": "Rows aur columns ki shared alignment ke liye Grid, ek primary axis ke liye Flexbox useful hai. Dono responsive hain; relation ke hisaab se choose karo."
+      },
+      {
+        "question": "How would you debug an element hidden behind another?",
+        "english": "Inspect stacking contexts created by transforms, opacity or positioning. A huge z-index cannot escape an ancestor's stacking context; inspect ancestors and clipping overflow too.",
+        "hinglish": "Transform, opacity aur positioning se bane stacking contexts dekho. Bada z-index ancestor context se bahar nahi nikalta; ancestors aur overflow clipping bhi inspect karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-nodejs",
+    "name": "Node.js",
+    "category": "Backend",
+    "reference": "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop",
+    "evidence": "BuzzLine/socket-server/server.js; MailLoop and PurePin package.json scripts.",
+    "english": [
+      "Node.js runs JavaScript outside the browser for servers and tooling. BuzzLine's separate socket server uses it; the runtime does not provide a browser DOM.",
+      "Callbacks execute on an event loop. Many I/O operations are asynchronous, but synchronous CPU-heavy code blocks that loop; some native operations use the worker pool.",
+      "Illustrative MailLoop improvement: stream and bound input size, validate rows, and dispatch durable work in batches. Avoid retaining the entire upload or doing long CPU work in a request.",
+      "Worker threads can move CPU-bound JavaScript off the main loop, at the cost of communication and memory. They are usually unnecessary just to wait for a network request."
+    ],
+    "hinglish": [
+      "Node.js browser ke bahar JavaScript servers aur tools chalata hai. BuzzLine ka separate socket server ise use karta hai; browser DOM runtime ka part nahi hai.",
+      "Callbacks event loop par execute hote hain. I/O aksar async hai, par heavy synchronous CPU code loop block karta hai; kuch native work worker pool use karta hai.",
+      "MailLoop sample improvement mein input stream karo, size bound karo, rows validate karke durable batches dispatch karo. Pura upload memory mein aur long CPU work request mein mat rakho.",
+      "CPU-bound JavaScript worker threads mein shift kar sakte ho, par communication aur memory cost aayegi. Sirf network response wait karne ke liye threads usually zaroori nahi."
+    ],
+    "questions": [
+      {
+        "question": "What is Node.js used for here?",
+        "english": "Node.js runs JavaScript outside the browser for servers and tooling. BuzzLine's separate socket server uses it; the runtime does not provide a browser DOM.",
+        "hinglish": "Node.js browser ke bahar JavaScript servers aur tools chalata hai. BuzzLine ka separate socket server ise use karta hai; browser DOM runtime ka part nahi hai."
+      },
+      {
+        "question": "Why can one slow callback delay other requests?",
+        "english": "Callbacks execute on an event loop. Many I/O operations are asynchronous, but synchronous CPU-heavy code blocks that loop; some native operations use the worker pool.",
+        "hinglish": "Callbacks event loop par execute hote hain. I/O aksar async hai, par heavy synchronous CPU code loop block karta hai; kuch native work worker pool use karta hai."
+      },
+      {
+        "question": "How would you process a large CSV safely?",
+        "english": "Illustrative MailLoop improvement: stream and bound input size, validate rows, and dispatch durable work in batches. Avoid retaining the entire upload or doing long CPU work in a request.",
+        "hinglish": "MailLoop sample improvement mein input stream karo, size bound karo, rows validate karke durable batches dispatch karo. Pura upload memory mein aur long CPU work request mein mat rakho."
+      },
+      {
+        "question": "When would you use worker threads?",
+        "english": "Worker threads can move CPU-bound JavaScript off the main loop, at the cost of communication and memory. They are usually unnecessary just to wait for a network request.",
+        "hinglish": "CPU-bound JavaScript worker threads mein shift kar sakte ho, par communication aur memory cost aayegi. Sirf network response wait karne ke liye threads usually zaroori nahi."
+      },
+      {
+        "question": "How would you investigate increasing server memory?",
+        "english": "Observe heap growth under repeated load, inspect retained objects and listeners, and compare heap snapshots. Check unbounded caches, per-connection state and missing cleanup before merely raising limits.",
+        "hinglish": "Repeated load mein heap trend aur retained objects dekho. Unbounded cache, connection state aur cleanup check karo; bas memory limit badhana fix nahi hai."
+      }
+    ]
+  },
+  {
+    "id": "skill-express",
+    "name": "Express",
+    "category": "Backend",
+    "reference": "https://expressjs.com/en/guide/using-middleware.html",
+    "evidence": "BuzzLine/socket-server/server.js and socket-server/package.json.",
+    "english": [
+      "Express provides HTTP routing and middleware. BuzzLine's socket server creates an Express app alongside Socket.IO; Express alone does not supply Socket.IO rooms or reconnection.",
+      "Middleware executes in registration order until it responds or calls next. Parsing, authentication and route logic must be placed deliberately; error middleware has four parameters.",
+      "Illustrative endpoint: parse a bounded body, authenticate the session, validate conversation membership, then read messages. Return a consistent failure without leaking another user's records.",
+      "CORS controls which browser origins can read certain responses. Non-browser clients can still call the endpoint, so every sensitive operation needs authentication and authorization."
+    ],
+    "hinglish": [
+      "Express HTTP routing aur middleware deta hai. BuzzLine socket server Express app ke saath Socket.IO use karta hai; rooms aur reconnection Express khud nahi deta.",
+      "Middleware registered order mein chalta hai, jab tak response ya next na ho. Parsing, auth aur routes ka order sochkar rakho; error middleware ke chaar parameters hote hain.",
+      "Sample endpoint mein bounded body parse karo, session authenticate aur conversation membership validate karo. Uske baad messages padho; doosre user ka data leak na ho.",
+      "CORS browser origins ka response access control karta hai. Non-browser client request kar sakta hai, isliye sensitive operation par auth aur authorization alag chahiye."
+    ],
+    "questions": [
+      {
+        "question": "What role does Express play in a Node server?",
+        "english": "Express provides HTTP routing and middleware. BuzzLine's socket server creates an Express app alongside Socket.IO; Express alone does not supply Socket.IO rooms or reconnection.",
+        "hinglish": "Express HTTP routing aur middleware deta hai. BuzzLine socket server Express app ke saath Socket.IO use karta hai; rooms aur reconnection Express khud nahi deta."
+      },
+      {
+        "question": "Why does middleware order matter?",
+        "english": "Middleware executes in registration order until it responds or calls next. Parsing, authentication and route logic must be placed deliberately; error middleware has four parameters.",
+        "hinglish": "Middleware registered order mein chalta hai, jab tak response ya next na ho. Parsing, auth aur routes ka order sochkar rakho; error middleware ke chaar parameters hote hain."
+      },
+      {
+        "question": "How would you protect a new messages endpoint?",
+        "english": "Illustrative endpoint: parse a bounded body, authenticate the session, validate conversation membership, then read messages. Return a consistent failure without leaking another user's records.",
+        "hinglish": "Sample endpoint mein bounded body parse karo, session authenticate aur conversation membership validate karo. Uske baad messages padho; doosre user ka data leak na ho."
+      },
+      {
+        "question": "Why is CORS not an authentication mechanism?",
+        "english": "CORS controls which browser origins can read certain responses. Non-browser clients can still call the endpoint, so every sensitive operation needs authentication and authorization.",
+        "hinglish": "CORS browser origins ka response access control karta hai. Non-browser client request kar sakta hai, isliye sensitive operation par auth aur authorization alag chahiye."
+      },
+      {
+        "question": "Why is a request hanging without a response?",
+        "english": "Check whether each middleware branch sends a response or calls next, and whether an awaited operation can stall. Add timeouts and inspect logs without sending multiple responses.",
+        "hinglish": "Har branch response bhej rahi hai ya next call kar rahi hai, check karo. Awaited work hang toh nahi, dekho; timeout rakho aur double response se bacho."
+      }
+    ]
+  },
+  {
+    "id": "skill-hono",
+    "name": "Hono",
+    "category": "Backend",
+    "reference": "https://hono.dev/docs/",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "Hono is a lightweight framework built around Web Standard Request and Response interfaces, useful across multiple runtimes. No Hono application is verified in these three projects.",
+      "A handler receives a context; middleware can await next to wrap downstream handlers. Context bindings expose runtime-specific resources, while the response comes from context helpers or Response.",
+      "Illustrative Hono route: parse JSON, validate with Zod, read authenticated identity from middleware and return c.json with a suitable status. Treat bindings and payloads as separate trust boundaries.",
+      "Using Web APIs improves portability, but database drivers, Node-specific modules and platform bindings may still constrain deployment. Verify the target runtime before choosing dependencies."
+    ],
+    "hinglish": [
+      "Hono Web Standard Request aur Response par based lightweight framework hai aur multiple runtimes mein useful hai. In teen projects mein Hono app verify nahi hua.",
+      "Handler ko context milta hai; middleware await next se downstream work wrap karta hai. Bindings runtime resources deti hain aur context helper ya Response se result aata hai.",
+      "Sample Hono route mein JSON parse aur Zod validate karo, middleware se authenticated identity lo aur c.json return karo. Bindings aur payload ki trust boundaries alag hain.",
+      "Web APIs portability badhati hain, par DB drivers, Node modules aur platform bindings deployment limit kar sakte hain. Dependencies choose karne se pehle target runtime check karo."
+    ],
+    "questions": [
+      {
+        "question": "Why choose Hono for a small API?",
+        "english": "Hono is a lightweight framework built around Web Standard Request and Response interfaces, useful across multiple runtimes. No Hono application is verified in these three projects.",
+        "hinglish": "Hono Web Standard Request aur Response par based lightweight framework hai aur multiple runtimes mein useful hai. In teen projects mein Hono app verify nahi hua."
+      },
+      {
+        "question": "How does Hono middleware pass control?",
+        "english": "A handler receives a context; middleware can await next to wrap downstream handlers. Context bindings expose runtime-specific resources, while the response comes from context helpers or Response.",
+        "hinglish": "Handler ko context milta hai; middleware await next se downstream work wrap karta hai. Bindings runtime resources deti hain aur context helper ya Response se result aata hai."
+      },
+      {
+        "question": "How would you build a typed validation endpoint?",
+        "english": "Illustrative Hono route: parse JSON, validate with Zod, read authenticated identity from middleware and return c.json with a suitable status. Treat bindings and payloads as separate trust boundaries.",
+        "hinglish": "Sample Hono route mein JSON parse aur Zod validate karo, middleware se authenticated identity lo aur c.json return karo. Bindings aur payload ki trust boundaries alag hain."
+      },
+      {
+        "question": "What portability limit should you consider?",
+        "english": "Using Web APIs improves portability, but database drivers, Node-specific modules and platform bindings may still constrain deployment. Verify the target runtime before choosing dependencies.",
+        "hinglish": "Web APIs portability badhati hain, par DB drivers, Node modules aur platform bindings deployment limit kar sakte hain. Dependencies choose karne se pehle target runtime check karo."
+      },
+      {
+        "question": "How would you debug an unavailable environment binding?",
+        "english": "Check the deployment configuration, binding name and local emulator configuration. A TypeScript binding declaration describes a value; it does not create the runtime resource.",
+        "hinglish": "Deployment config, binding name aur local emulator settings check karo. TypeScript binding declaration sirf value describe karti hai, runtime resource create nahi karti."
+      }
+    ]
+  },
+  {
+    "id": "skill-cloudflare-workers",
+    "name": "Cloudflare Workers",
+    "category": "Backend",
+    "reference": "https://developers.cloudflare.com/workers/",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "A Worker runs application logic on Cloudflare's distributed platform using an isolate-based runtime. It can handle HTTP requests, but it is not an always-on VM or a demonstrated deployment here.",
+      "Bindings provide access to resources such as KV, R2 or databases through the environment. Global memory may be reused but must not be treated as durable storage.",
+      "Illustrative design: validate a short code, look up a stored destination and return a redirect. Restrict destinations during creation to avoid turning the service into an open redirect.",
+      "Check supported APIs, Node compatibility flags, resource limits and storage consistency. Local filesystem assumptions and long CPU tasks usually require redesign."
+    ],
+    "hinglish": [
+      "Worker Cloudflare platform par isolate runtime mein app logic chalata hai. HTTP requests handle kar sakta hai, par always-on VM nahi aur yahan deployment verify nahi hua.",
+      "Environment bindings se KV, R2 ya database jaise resources milte hain. Global memory reuse ho sakti hai, par use durable storage mat samjho.",
+      "Sample service mein short code validate, stored destination lookup aur redirect return karo. Creation par destinations restrict karo taaki open redirect na ban jaaye.",
+      "Node app move karte waqt APIs, compatibility flags, limits aur storage consistency check karo. Local filesystem aur long CPU work ki assumptions redesign maang sakti hain."
+    ],
+    "questions": [
+      {
+        "question": "What is a Cloudflare Worker?",
+        "english": "A Worker runs application logic on Cloudflare's distributed platform using an isolate-based runtime. It can handle HTTP requests, but it is not an always-on VM or a demonstrated deployment here.",
+        "hinglish": "Worker Cloudflare platform par isolate runtime mein app logic chalata hai. HTTP requests handle kar sakta hai, par always-on VM nahi aur yahan deployment verify nahi hua."
+      },
+      {
+        "question": "How are configuration and storage accessed?",
+        "english": "Bindings provide access to resources such as KV, R2 or databases through the environment. Global memory may be reused but must not be treated as durable storage.",
+        "hinglish": "Environment bindings se KV, R2 ya database jaise resources milte hain. Global memory reuse ho sakti hai, par use durable storage mat samjho."
+      },
+      {
+        "question": "How would you implement an edge redirect service?",
+        "english": "Illustrative design: validate a short code, look up a stored destination and return a redirect. Restrict destinations during creation to avoid turning the service into an open redirect.",
+        "hinglish": "Sample service mein short code validate, stored destination lookup aur redirect return karo. Creation par destinations restrict karo taaki open redirect na ban jaaye."
+      },
+      {
+        "question": "What changes when moving a Node app to Workers?",
+        "english": "Check supported APIs, Node compatibility flags, resource limits and storage consistency. Local filesystem assumptions and long CPU tasks usually require redesign.",
+        "hinglish": "Node app move karte waqt APIs, compatibility flags, limits aur storage consistency check karo. Local filesystem aur long CPU work ki assumptions redesign maang sakti hain."
+      },
+      {
+        "question": "Why might an asynchronous side effect not finish?",
+        "english": "Request completion can end ordinary background work. Use supported lifecycle mechanisms such as waitUntil for suitable tasks or a durable queue for retryable work, within platform limits.",
+        "hinglish": "Request complete hone par normal background work ruk sakta hai. Suitable task ke liye waitUntil ya retry wale work ke liye durable queue use karo, platform limits ke andar."
+      }
+    ]
+  },
+  {
+    "id": "skill-socketio",
+    "name": "Socket.io",
+    "category": "Backend",
+    "reference": "https://socket.io/docs/v4/",
+    "evidence": "BuzzLine/socket-server/server.js and src/lib/socket-client.ts (Socket.IO v4).",
+    "english": [
+      "Socket.IO supplies an event protocol, reconnection and rooms over transports such as WebSocket or HTTP polling. A raw WebSocket client cannot directly speak the Socket.IO protocol.",
+      "A room groups server-side sockets for targeted emits. Membership itself is not authorization; the server must verify the authenticated user's right to join or send to that room.",
+      "For a BuzzLine-style flow, persist an authorized message with an ID, then emit it to members. Acknowledgments and client deduplication help retries; this is design guidance, not a claim of exactly-once delivery.",
+      "No. Reconnecting restores connectivity, while missed-event recovery depends on enabled features and persistence. Store important messages and fetch missing records using a cursor or last-seen ID."
+    ],
+    "hinglish": [
+      "Socket.IO events, reconnection aur rooms deta hai; transport WebSocket ya polling ho sakta hai. Raw WebSocket client Socket.IO protocol seedha nahi bol sakta.",
+      "Room sockets ko targeted emit ke liye group karta hai. Membership apne aap authorization nahi; join aur send se pehle user ka right server verify kare.",
+      "BuzzLine jaise flow mein authorized message ID ke saath persist karke members ko emit karo. Ack aur dedup retries mein help karte hain; exactly-once delivery assume mat karo.",
+      "Nahi. Reconnection connectivity lautata hai; missed events ka recovery features aur persistence par depend hai. Important messages store karke cursor ya last-seen ID se missing records lao."
+    ],
+    "questions": [
+      {
+        "question": "How does Socket.IO differ from raw WebSocket?",
+        "english": "Socket.IO supplies an event protocol, reconnection and rooms over transports such as WebSocket or HTTP polling. A raw WebSocket client cannot directly speak the Socket.IO protocol.",
+        "hinglish": "Socket.IO events, reconnection aur rooms deta hai; transport WebSocket ya polling ho sakta hai. Raw WebSocket client Socket.IO protocol seedha nahi bol sakta."
+      },
+      {
+        "question": "What does joining a room accomplish?",
+        "english": "A room groups server-side sockets for targeted emits. Membership itself is not authorization; the server must verify the authenticated user's right to join or send to that room.",
+        "hinglish": "Room sockets ko targeted emit ke liye group karta hai. Membership apne aap authorization nahi; join aur send se pehle user ka right server verify kare."
+      },
+      {
+        "question": "How would you send a chat message reliably?",
+        "english": "For a BuzzLine-style flow, persist an authorized message with an ID, then emit it to members. Acknowledgments and client deduplication help retries; this is design guidance, not a claim of exactly-once delivery.",
+        "hinglish": "BuzzLine jaise flow mein authorized message ID ke saath persist karke members ko emit karo. Ack aur dedup retries mein help karte hain; exactly-once delivery assume mat karo."
+      },
+      {
+        "question": "Does reconnection guarantee that no events are lost?",
+        "english": "No. Reconnecting restores connectivity, while missed-event recovery depends on enabled features and persistence. Store important messages and fetch missing records using a cursor or last-seen ID.",
+        "hinglish": "Nahi. Reconnection connectivity lautata hai; missed events ka recovery features aur persistence par depend hai. Important messages store karke cursor ya last-seen ID se missing records lao."
+      },
+      {
+        "question": "How would you troubleshoot duplicate messages?",
+        "english": "Check repeated listener registration, missing off cleanup, optimistic UI reconciliation and retried emits. Log stable message IDs so a second render is distinguishable from a second stored message.",
+        "hinglish": "Repeated listeners, missing off cleanup, optimistic UI aur retries check karo. Stable message IDs log karo, taaki double render aur double stored message alag pehchano."
+      }
+    ]
+  },
+  {
+    "id": "skill-rest-apis",
+    "name": "REST APIs",
+    "category": "Backend",
+    "reference": "https://www.rfc-editor.org/rfc/rfc9110",
+    "evidence": "PurePin/src/app/api; BuzzLine/src/app/api; MailLoop/src/app/api. These are HTTP JSON endpoints, not proof of full REST constraint compliance.",
+    "english": [
+      "Resources have stable identifiers and operations use HTTP semantics with meaningful statuses. The projects expose HTTP JSON APIs; that alone does not prove every REST constraint is implemented.",
+      "Safe methods are intended for reading without requested state changes. Idempotent methods have the same intended effect when repeated; PUT and DELETE are idempotent, while POST is not guaranteed to be.",
+      "Illustrative endpoint: GET a conversation's messages with a cursor and bounded limit, check membership, and return items plus the next cursor. Use deterministic ordering including a unique tie-breaker.",
+      "Status codes classify failure, but clients need stable error codes and safe messages. Avoid leaking internals, and document retryability and validation details consistently."
+    ],
+    "hinglish": [
+      "Resources ke stable identifiers aur HTTP semantics clear interface banate hain. Projects HTTP JSON APIs dikhate hain; isse saare REST constraints implement hona prove nahi hota.",
+      "Safe method ka intended kaam read hai. Idempotent request repeat karne ka intended effect same rehta hai; PUT aur DELETE idempotent hain, POST ki guarantee nahi.",
+      "Sample GET endpoint mein conversation membership check, bounded limit aur cursor lo. Items aur next cursor return karo; ordering mein unique tie-breaker rakho.",
+      "Status failure classify karta hai, par client ko stable error code aur safe message bhi chahiye. Internal details leak na karo; retryability aur validation details consistent rakho."
+    ],
+    "questions": [
+      {
+        "question": "What makes a resource-oriented HTTP API useful?",
+        "english": "Resources have stable identifiers and operations use HTTP semantics with meaningful statuses. The projects expose HTTP JSON APIs; that alone does not prove every REST constraint is implemented.",
+        "hinglish": "Resources ke stable identifiers aur HTTP semantics clear interface banate hain. Projects HTTP JSON APIs dikhate hain; isse saare REST constraints implement hona prove nahi hota."
+      },
+      {
+        "question": "What is the difference between safe and idempotent methods?",
+        "english": "Safe methods are intended for reading without requested state changes. Idempotent methods have the same intended effect when repeated; PUT and DELETE are idempotent, while POST is not guaranteed to be.",
+        "hinglish": "Safe method ka intended kaam read hai. Idempotent request repeat karne ka intended effect same rehta hai; PUT aur DELETE idempotent hain, POST ki guarantee nahi."
+      },
+      {
+        "question": "How would you design paginated message retrieval?",
+        "english": "Illustrative endpoint: GET a conversation's messages with a cursor and bounded limit, check membership, and return items plus the next cursor. Use deterministic ordering including a unique tie-breaker.",
+        "hinglish": "Sample GET endpoint mein conversation membership check, bounded limit aur cursor lo. Items aur next cursor return karo; ordering mein unique tie-breaker rakho."
+      },
+      {
+        "question": "Why is a status code alone insufficient for errors?",
+        "english": "Status codes classify failure, but clients need stable error codes and safe messages. Avoid leaking internals, and document retryability and validation details consistently.",
+        "hinglish": "Status failure classify karta hai, par client ko stable error code aur safe message bhi chahiye. Internal details leak na karo; retryability aur validation details consistent rakho."
+      },
+      {
+        "question": "How would you debug repeated POST side effects after timeouts?",
+        "english": "The server may commit before the client times out. Add a scoped idempotency key and atomic deduplication, then let retries retrieve the existing result rather than create another side effect.",
+        "hinglish": "Client timeout se pehle server commit kar sakta hai. Scoped idempotency key aur atomic dedup rakho, taaki retry naya side effect banane ke badle existing result de."
+      }
+    ]
+  },
+  {
+    "id": "skill-inngest",
+    "name": "Inngest",
+    "category": "Backend",
+    "reference": "https://www.inngest.com/docs",
+    "evidence": "MailLoop/src/lib/inngest.ts and src/lib/inngest-client.ts and package.json.",
+    "english": [
+      "Inngest orchestrates event-driven background functions with durable steps and retry controls. MailLoop uses it for campaign processing; scheduling a job is different from confirming email delivery.",
+      "A completed step's result can be persisted and reused when execution resumes. Work outside a durable boundary may run again; external side effects still need idempotency and ambiguity handling.",
+      "Illustrative structure: load the batch, check cancellation and quota, dispatch bounded units, record outcomes and update progress. Separate provider acceptance from confirmed delivery and unknown outcomes.",
+      "Retries can duplicate an external action after a timeout. Persist attempts and safe deduplication keys; uncertain sends may require reconciliation instead of automatic repeated delivery attempts."
+    ],
+    "hinglish": [
+      "Inngest event-based background functions, durable steps aur retries manage karta hai. MailLoop campaigns mein use karta hai; job schedule hona email delivery confirm hona nahi hai.",
+      "Completed step ka result persist hokar resume par reuse ho sakta hai. Durable boundary ke bahar ka work repeat ho sakta hai; external side effects ko idempotency chahiye.",
+      "Sample job mein batch load, cancellation aur quota check, bounded dispatch, outcome recording aur progress update rakho. Provider acceptance, delivery aur unknown result ko alag rakho.",
+      "Timeout ke baad retry external action duplicate kar sakti hai. Attempts aur dedup keys persist karo; uncertain send mein reconciliation chahiye ho sakti hai."
+    ],
+    "questions": [
+      {
+        "question": "Why use Inngest for outreach work?",
+        "english": "Inngest orchestrates event-driven background functions with durable steps and retry controls. MailLoop uses it for campaign processing; scheduling a job is different from confirming email delivery.",
+        "hinglish": "Inngest event-based background functions, durable steps aur retries manage karta hai. MailLoop campaigns mein use karta hai; job schedule hona email delivery confirm hona nahi hai."
+      },
+      {
+        "question": "How do durable steps affect retries?",
+        "english": "A completed step's result can be persisted and reused when execution resumes. Work outside a durable boundary may run again; external side effects still need idempotency and ambiguity handling.",
+        "hinglish": "Completed step ka result persist hokar resume par reuse ho sakta hai. Durable boundary ke bahar ka work repeat ho sakta hai; external side effects ko idempotency chahiye."
+      },
+      {
+        "question": "How would you structure a campaign job?",
+        "english": "Illustrative structure: load the batch, check cancellation and quota, dispatch bounded units, record outcomes and update progress. Separate provider acceptance from confirmed delivery and unknown outcomes.",
+        "hinglish": "Sample job mein batch load, cancellation aur quota check, bounded dispatch, outcome recording aur progress update rakho. Provider acceptance, delivery aur unknown result ko alag rakho."
+      },
+      {
+        "question": "Why not rely on a background function's retry alone?",
+        "english": "Retries can duplicate an external action after a timeout. Persist attempts and safe deduplication keys; uncertain sends may require reconciliation instead of automatic repeated delivery attempts.",
+        "hinglish": "Timeout ke baad retry external action duplicate kar sakti hai. Attempts aur dedup keys persist karo; uncertain send mein reconciliation chahiye ho sakti hai."
+      },
+      {
+        "question": "How would you debug a job that stops progressing?",
+        "english": "Trace the event ID, function run, failed step and persisted campaign state. Check concurrency limits, credentials and retry exhaustion before replaying work that might already have sent mail.",
+        "hinglish": "Event ID, run, failed step aur persisted campaign state trace karo. Concurrency, credentials aur exhausted retries dekho; replay se pehle confirm karo mail pehle send toh nahi hua."
+      }
+    ]
+  },
+  {
+    "id": "skill-gmail-api",
+    "name": "Gmail API",
+    "category": "Backend",
+    "reference": "https://developers.google.com/workspace/gmail/api/guides/sending",
+    "evidence": "MailLoop/src/lib/gmail.ts and src/auth.ts; see bundled MailLoop source lessons for exact paths.",
+    "english": [
+      "It enables authorized mailbox operations such as sending email on behalf of a user. OAuth scopes limit granted access; it is not a general anonymous bulk-mail relay.",
+      "Create a valid MIME message, encode it with base64url and send it through the appropriate Gmail endpoint using an authorized access token. Refresh expired access tokens using the server-side credential flow.",
+      "For a MailLoop-style campaign, validate each recipient, escape inserted content according to its HTML or text context, build MIME per recipient, and record the attempt before interpreting the outcome.",
+      "No. It indicates the sending operation was accepted by the API, not that the recipient read it or that it avoided spam. Quotas and account policies still apply."
+    ],
+    "hinglish": [
+      "Gmail API user ki permission se mailbox operations aur email sending karti hai. OAuth scopes access limit karte hain; ye anonymous bulk-mail relay nahi hai.",
+      "Valid MIME message banao, base64url encode karo aur authorized access token se Gmail endpoint par bhejo. Expired access token server credential flow se refresh karo.",
+      "MailLoop jaise campaign mein recipient validate, inserted content context ke hisaab se escape aur har recipient ka MIME banao. Outcome samajhne ke liye attempt record bhi rakho.",
+      "Nahi. Successful response sending operation accept hone ka signal hai; inbox placement ya read ka proof nahi. Quotas aur account policies bhi apply hongi."
+    ],
+    "questions": [
+      {
+        "question": "What does the Gmail API enable in MailLoop?",
+        "english": "It enables authorized mailbox operations such as sending email on behalf of a user. OAuth scopes limit granted access; it is not a general anonymous bulk-mail relay.",
+        "hinglish": "Gmail API user ki permission se mailbox operations aur email sending karti hai. OAuth scopes access limit karte hain; ye anonymous bulk-mail relay nahi hai."
+      },
+      {
+        "question": "How is a message represented for sending?",
+        "english": "Create a valid MIME message, encode it with base64url and send it through the appropriate Gmail endpoint using an authorized access token. Refresh expired access tokens using the server-side credential flow.",
+        "hinglish": "Valid MIME message banao, base64url encode karo aur authorized access token se Gmail endpoint par bhejo. Expired access token server credential flow se refresh karo."
+      },
+      {
+        "question": "How would you personalize a CSV campaign safely?",
+        "english": "For a MailLoop-style campaign, validate each recipient, escape inserted content according to its HTML or text context, build MIME per recipient, and record the attempt before interpreting the outcome.",
+        "hinglish": "MailLoop jaise campaign mein recipient validate, inserted content context ke hisaab se escape aur har recipient ka MIME banao. Outcome samajhne ke liye attempt record bhi rakho."
+      },
+      {
+        "question": "Does a successful API response prove inbox delivery?",
+        "english": "No. It indicates the sending operation was accepted by the API, not that the recipient read it or that it avoided spam. Quotas and account policies still apply.",
+        "hinglish": "Nahi. Successful response sending operation accept hone ka signal hai; inbox placement ya read ka proof nahi. Quotas aur account policies bhi apply hongi."
+      },
+      {
+        "question": "How would you respond to authentication or quota errors?",
+        "english": "Inspect the provider error: refresh an expired token where valid, require reconnection for revoked consent, and back off for rate limits. Do not blindly retry permanent recipient or permission failures.",
+        "hinglish": "Provider error dekho: valid flow mein token refresh karo, revoked consent mein reconnect maango, rate limit par backoff karo. Permanent recipient ya permission errors blindly retry mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-zod",
+    "name": "Zod",
+    "category": "Backend",
+    "reference": "https://zod.dev/basics",
+    "evidence": "MailLoop/src/lib/billing/config.ts; PurePin/src/lib/validation.ts; all three package.json files.",
+    "english": [
+      "Zod checks runtime values at trust boundaries and can infer TypeScript types from schemas. TypeScript types alone cannot ensure a request body or environment variable has the required shape.",
+      "parse returns validated data or throws a validation error. safeParse returns a success-discriminated result so the caller can branch explicitly; transformations mean output can differ from input.",
+      "Illustrative PurePin boundary: parse the string, require allowed protocols and hosts, and reject invalid input before fetching. A syntactically valid URL alone is not sufficient for safe server fetching.",
+      "A schema checks specified structure and refinements; it does not automatically enforce ownership, database uniqueness or current account entitlement. Those checks need trusted server state."
+    ],
+    "hinglish": [
+      "Zod runtime values check karta hai aur schema se types infer kar sakta hai. Sirf TypeScript request body ya env variable ki actual shape guarantee nahi karta.",
+      "parse validated data deta hai ya error throw karta hai. safeParse success flag wala result deta hai; transformations ke baad output input se alag ho sakta hai.",
+      "PurePin sample boundary mein string parse, allowed protocol aur host check karke fetch karo. Sirf syntactically valid URL safe server fetch ki guarantee nahi hai.",
+      "Schema defined shape aur refinements check karta hai. Ownership, DB uniqueness aur current entitlement automatic nahi hote; trusted server state se check karo."
+    ],
+    "questions": [
+      {
+        "question": "Why use Zod when TypeScript already provides types?",
+        "english": "Zod checks runtime values at trust boundaries and can infer TypeScript types from schemas. TypeScript types alone cannot ensure a request body or environment variable has the required shape.",
+        "hinglish": "Zod runtime values check karta hai aur schema se types infer kar sakta hai. Sirf TypeScript request body ya env variable ki actual shape guarantee nahi karta."
+      },
+      {
+        "question": "How do parse and safeParse differ?",
+        "english": "parse returns validated data or throws a validation error. safeParse returns a success-discriminated result so the caller can branch explicitly; transformations mean output can differ from input.",
+        "hinglish": "parse validated data deta hai ya error throw karta hai. safeParse success flag wala result deta hai; transformations ke baad output input se alag ho sakta hai."
+      },
+      {
+        "question": "How would you validate a submitted URL?",
+        "english": "Illustrative PurePin boundary: parse the string, require allowed protocols and hosts, and reject invalid input before fetching. A syntactically valid URL alone is not sufficient for safe server fetching.",
+        "hinglish": "PurePin sample boundary mein string parse, allowed protocol aur host check karke fetch karo. Sirf syntactically valid URL safe server fetch ki guarantee nahi hai."
+      },
+      {
+        "question": "What should schema validation not be expected to do?",
+        "english": "A schema checks specified structure and refinements; it does not automatically enforce ownership, database uniqueness or current account entitlement. Those checks need trusted server state.",
+        "hinglish": "Schema defined shape aur refinements check karta hai. Ownership, DB uniqueness aur current entitlement automatic nahi hote; trusted server state se check karo."
+      },
+      {
+        "question": "Why might a valid-looking environment configuration fail?",
+        "english": "Environment values are strings and may be absent or contain whitespace. Inspect safe validation issues without logging secrets; use explicit coercion and avoid treating the string false as a boolean false automatically.",
+        "hinglish": "Env values strings hoti hain, missing ya whitespace wali ho sakti hain. Secrets log kiye bina issues dekho; explicit coercion karo, string false ko seedha boolean false assume mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-mongodb",
+    "name": "MongoDB",
+    "category": "Databases & Auth",
+    "reference": "https://www.mongodb.com/docs/manual/",
+    "evidence": "BuzzLine/src/lib/db.ts, src/models and socket-server/server.js.",
+    "english": [
+      "MongoDB stores BSON documents and supports indexed queries and aggregation. BuzzLine uses it for chat data; a flexible schema still needs validation and careful relationship design.",
+      "An index lets the engine narrow candidate records without scanning every document. A compound index should match query filters and sort order; indexes consume storage and add write work.",
+      "Illustrative BuzzLine design: store conversationId and timestamp with each message and index them with a unique tie-breaker. Fetch bounded pages and authorize membership before querying.",
+      "Unbounded message arrays inflate document size and update contention. Separate message documents support paging; embedding bounded data can still simplify atomic updates within one document."
+    ],
+    "hinglish": [
+      "MongoDB BSON documents store karta hai aur indexed queries support karta hai. BuzzLine chat data mein use karta hai; flexible schema ke saath validation aur relations ka design zaroori hai.",
+      "Index engine ko poora collection scan kiye bina records dhoondhne deta hai. Compound index filters aur sort se match karo; storage aur write cost badhti hai.",
+      "BuzzLine sample design mein har message ka conversationId aur timestamp rakho aur unique tie-breaker ke saath index karo. Bounded pages fetch karo, pehle membership authorize karo.",
+      "Unlimited messages array document ko bada aur updates ko contested banata hai. Separate messages paging aasaan karte hain; bounded data embed karna single-document atomic update mein useful hai."
+    ],
+    "questions": [
+      {
+        "question": "Why is MongoDB a fit for document data?",
+        "english": "MongoDB stores BSON documents and supports indexed queries and aggregation. BuzzLine uses it for chat data; a flexible schema still needs validation and careful relationship design.",
+        "hinglish": "MongoDB BSON documents store karta hai aur indexed queries support karta hai. BuzzLine chat data mein use karta hai; flexible schema ke saath validation aur relations ka design zaroori hai."
+      },
+      {
+        "question": "How do indexes improve reads?",
+        "english": "An index lets the engine narrow candidate records without scanning every document. A compound index should match query filters and sort order; indexes consume storage and add write work.",
+        "hinglish": "Index engine ko poora collection scan kiye bina records dhoondhne deta hai. Compound index filters aur sort se match karo; storage aur write cost badhti hai."
+      },
+      {
+        "question": "How would you model chat pagination?",
+        "english": "Illustrative BuzzLine design: store conversationId and timestamp with each message and index them with a unique tie-breaker. Fetch bounded pages and authorize membership before querying.",
+        "hinglish": "BuzzLine sample design mein har message ka conversationId aur timestamp rakho aur unique tie-breaker ke saath index karo. Bounded pages fetch karo, pehle membership authorize karo."
+      },
+      {
+        "question": "When should you avoid an ever-growing embedded array?",
+        "english": "Unbounded message arrays inflate document size and update contention. Separate message documents support paging; embedding bounded data can still simplify atomic updates within one document.",
+        "hinglish": "Unlimited messages array document ko bada aur updates ko contested banata hai. Separate messages paging aasaan karte hain; bounded data embed karna single-document atomic update mein useful hai."
+      },
+      {
+        "question": "How would you debug a slow message query?",
+        "english": "Use explain to inspect scanned documents and selected indexes. Verify the actual filter, sort and pagination cursor, then add a matching index rather than assuming the ODM creates it.",
+        "hinglish": "explain se scanned documents aur selected index dekho. Actual filter, sort aur cursor verify karo; ODM automatic sahi index banayega assume mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-postgresql",
+    "name": "PostgreSQL",
+    "category": "Databases & Auth",
+    "reference": "https://www.postgresql.org/docs/current/",
+    "evidence": "MailLoop/prisma/schema.prisma and docker-compose.yml.",
+    "english": [
+      "PostgreSQL provides relational constraints, transactions and SQL queries. These help coordinate campaigns and billing records, but a committed row cannot make a remote email send atomic.",
+      "A transaction commits its database changes together or rolls them back. Isolation controls concurrent observations; applications must still handle conflicts and external operations outside the database boundary.",
+      "Illustrative MailLoop design: use an atomic conditional update or lock the relevant ledger row in a transaction, enforce a unique operation key, and record consumption with its outcome.",
+      "Indexes accelerate matching queries but increase write cost, storage and maintenance. Choose indexes from real access patterns and verify with query plans rather than indexing every column."
+    ],
+    "hinglish": [
+      "PostgreSQL relations, constraints aur transactions deta hai jo campaign aur billing state coordinate karte hain. DB commit remote email send ko atomic nahi bana sakta.",
+      "Transaction DB changes ek saath commit ya rollback karta hai. Isolation concurrency control karta hai; conflicts aur external operations application ko handle karne hain.",
+      "MailLoop sample design mein atomic conditional update ya transaction lock, unique operation key aur consumption record use karo. Parallel requests ko same quota double spend na karne do.",
+      "Indexes matching reads fast karte hain par writes, storage aur maintenance mehenga karte hain. Real access patterns aur query plans ke basis par choose karo."
+    ],
+    "questions": [
+      {
+        "question": "Why use PostgreSQL for MailLoop state?",
+        "english": "PostgreSQL provides relational constraints, transactions and SQL queries. These help coordinate campaigns and billing records, but a committed row cannot make a remote email send atomic.",
+        "hinglish": "PostgreSQL relations, constraints aur transactions deta hai jo campaign aur billing state coordinate karte hain. DB commit remote email send ko atomic nahi bana sakta."
+      },
+      {
+        "question": "What does a transaction guarantee?",
+        "english": "A transaction commits its database changes together or rolls them back. Isolation controls concurrent observations; applications must still handle conflicts and external operations outside the database boundary.",
+        "hinglish": "Transaction DB changes ek saath commit ya rollback karta hai. Isolation concurrency control karta hai; conflicts aur external operations application ko handle karne hain."
+      },
+      {
+        "question": "How would you prevent double quota consumption?",
+        "english": "Illustrative MailLoop design: use an atomic conditional update or lock the relevant ledger row in a transaction, enforce a unique operation key, and record consumption with its outcome.",
+        "hinglish": "MailLoop sample design mein atomic conditional update ya transaction lock, unique operation key aur consumption record use karo. Parallel requests ko same quota double spend na karne do."
+      },
+      {
+        "question": "What tradeoff comes with more indexes?",
+        "english": "Indexes accelerate matching queries but increase write cost, storage and maintenance. Choose indexes from real access patterns and verify with query plans rather than indexing every column.",
+        "hinglish": "Indexes matching reads fast karte hain par writes, storage aur maintenance mehenga karte hain. Real access patterns aur query plans ke basis par choose karo."
+      },
+      {
+        "question": "How would you troubleshoot a deadlock?",
+        "english": "Inspect conflicting transactions and lock order, keep transactions short, and acquire shared resources in consistent order. Retry a fully rolled-back transaction with bounds where safe.",
+        "hinglish": "Conflicting transactions aur lock order dekho. Transactions short aur resource order consistent rakho; rolled-back transaction ko safe ho toh bounded retry karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-prisma",
+    "name": "Prisma",
+    "category": "Databases & Auth",
+    "reference": "https://www.prisma.io/docs/orm",
+    "evidence": "MailLoop/prisma/schema.prisma, src/lib/db.ts and package.json (Prisma 7).",
+    "english": [
+      "Prisma maps a declared data model to a generated typed database client and migration tooling. MailLoop uses PostgreSQL through Prisma; types do not replace database constraints.",
+      "A schema change needs an appropriate migration and deployment step, while client generation updates the typed API. Generating a client alone does not apply a database migration.",
+      "Illustrative MailLoop ledger update: group dependent writes with a transaction and enforce operation uniqueness in the database. Avoid holding the transaction open while calling a mail or payment provider.",
+      "Repeated relation queries can create N+1 access patterns, and fetching unnecessary fields increases work. Inspect generated queries, select needed fields and add appropriate database indexes."
+    ],
+    "hinglish": [
+      "Prisma model se typed DB client aur migration tooling milti hai. MailLoop PostgreSQL ke saath use karta hai; types database constraints ka replacement nahi hain.",
+      "Schema edit ke liye migration aur deploy step chahiye; client generate typed API update karta hai. Client generation akela DB migrate nahi karta.",
+      "MailLoop sample ledger update mein dependent writes transaction mein aur operation uniqueness DB mein rakho. Provider network call ke dauraan transaction khula mat chhodo.",
+      "ORM ke saath bhi repeated relation queries N+1 bana sakti hain. Generated queries dekho, needed fields select karo aur DB indexes sahi rakho."
+    ],
+    "questions": [
+      {
+        "question": "What role does Prisma play?",
+        "english": "Prisma maps a declared data model to a generated typed database client and migration tooling. MailLoop uses PostgreSQL through Prisma; types do not replace database constraints.",
+        "hinglish": "Prisma model se typed DB client aur migration tooling milti hai. MailLoop PostgreSQL ke saath use karta hai; types database constraints ka replacement nahi hain."
+      },
+      {
+        "question": "How do schema edits reach the database?",
+        "english": "A schema change needs an appropriate migration and deployment step, while client generation updates the typed API. Generating a client alone does not apply a database migration.",
+        "hinglish": "Schema edit ke liye migration aur deploy step chahiye; client generate typed API update karta hai. Client generation akela DB migrate nahi karta."
+      },
+      {
+        "question": "How would you make two related writes atomic?",
+        "english": "Illustrative MailLoop ledger update: group dependent writes with a transaction and enforce operation uniqueness in the database. Avoid holding the transaction open while calling a mail or payment provider.",
+        "hinglish": "MailLoop sample ledger update mein dependent writes transaction mein aur operation uniqueness DB mein rakho. Provider network call ke dauraan transaction khula mat chhodo."
+      },
+      {
+        "question": "Why can an ORM still produce slow database access?",
+        "english": "Repeated relation queries can create N+1 access patterns, and fetching unnecessary fields increases work. Inspect generated queries, select needed fields and add appropriate database indexes.",
+        "hinglish": "ORM ke saath bhi repeated relation queries N+1 bana sakti hain. Generated queries dekho, needed fields select karo aur DB indexes sahi rakho."
+      },
+      {
+        "question": "How would you handle a schema/client mismatch?",
+        "english": "Check the database URL, deployed migration history and generated client version. Regenerate and deploy the intended migration through the documented workflow; do not reset a production database as a shortcut.",
+        "hinglish": "DB URL, deployed migration history aur client version check karo. Documented workflow se generate aur migrate karo; production DB reset ko shortcut mat banao."
+      }
+    ]
+  },
+  {
+    "id": "skill-nextauth-authjs",
+    "name": "NextAuth/Auth.js",
+    "category": "Databases & Auth",
+    "reference": "https://authjs.dev/getting-started/migrating-to-v5",
+    "evidence": "MailLoop/package.json uses next-auth v5 beta and src/auth.ts; BuzzLine uses v4 and src/lib/auth.ts.",
+    "english": [
+      "MailLoop declares next-auth v5 beta, commonly documented as Auth.js; BuzzLine declares NextAuth v4. Both manage authentication flows, but their initialization and server session APIs differ.",
+      "Callbacks can shape token and session data according to the chosen strategy. Expose only fields the client needs; provider access and refresh tokens should remain server-side, with version-specific APIs respected.",
+      "In a MailLoop-style action, resolve the server session using its v5 configuration, require a user ID, and query records scoped to that owner. Hiding a button is not server authorization.",
+      "Configuration exports, route setup and server access patterns changed. Match installed documentation and session strategy; migration also needs regression tests for callbacks, redirects and provider credentials."
+    ],
+    "hinglish": [
+      "MailLoop next-auth v5 beta yani Auth.js use karta hai; BuzzLine NextAuth v4. Dono auth flows manage karte hain, par initialization aur server session APIs alag hain.",
+      "Callbacks chosen strategy ke hisaab se token aur session shape karte hain. Client ko sirf needed fields do; provider access aur refresh tokens server par rakho aur version-specific API follow karo.",
+      "MailLoop-style action mein v5 config se server session lo, user ID require karo aur owner-scoped records query karo. Button chhupana server authorization nahi hai.",
+      "v5 mein exports, routes aur server access patterns badle hain. Installed version aur session strategy ke docs follow karo; callbacks, redirects aur provider credentials test karo."
+    ],
+    "questions": [
+      {
+        "question": "How do the projects differ in auth versions?",
+        "english": "MailLoop declares next-auth v5 beta, commonly documented as Auth.js; BuzzLine declares NextAuth v4. Both manage authentication flows, but their initialization and server session APIs differ.",
+        "hinglish": "MailLoop next-auth v5 beta yani Auth.js use karta hai; BuzzLine NextAuth v4. Dono auth flows manage karte hain, par initialization aur server session APIs alag hain."
+      },
+      {
+        "question": "How do JWT and session callbacks relate?",
+        "english": "Callbacks can shape token and session data according to the chosen strategy. Expose only fields the client needs; provider access and refresh tokens should remain server-side, with version-specific APIs respected.",
+        "hinglish": "Callbacks chosen strategy ke hisaab se token aur session shape karte hain. Client ko sirf needed fields do; provider access aur refresh tokens server par rakho aur version-specific API follow karo."
+      },
+      {
+        "question": "How would you protect a private campaign action?",
+        "english": "In a MailLoop-style action, resolve the server session using its v5 configuration, require a user ID, and query records scoped to that owner. Hiding a button is not server authorization.",
+        "hinglish": "MailLoop-style action mein v5 config se server session lo, user ID require karo aur owner-scoped records query karo. Button chhupana server authorization nahi hai."
+      },
+      {
+        "question": "Why should v4 examples not be pasted into v5 blindly?",
+        "english": "Configuration exports, route setup and server access patterns changed. Match installed documentation and session strategy; migration also needs regression tests for callbacks, redirects and provider credentials.",
+        "hinglish": "v5 mein exports, routes aur server access patterns badle hain. Installed version aur session strategy ke docs follow karo; callbacks, redirects aur provider credentials test karo."
+      },
+      {
+        "question": "How would you debug a login redirect loop?",
+        "english": "Check callback URLs, application origin, cookie security and proxy configuration, then inspect provider and callback errors. Never log tokens or secrets while diagnosing the session.",
+        "hinglish": "Callback URL, app origin, secure cookies aur proxy config check karo, phir provider/callback error dekho. Session debug karte waqt tokens aur secrets log mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-jwt",
+    "name": "JWT",
+    "category": "Databases & Auth",
+    "reference": "https://www.rfc-editor.org/rfc/rfc7519",
+    "evidence": "BuzzLine/src/lib/auth.ts uses JWT session strategy; jsonwebtoken is listed in BuzzLine/package.json.",
+    "english": [
+      "A JWT carries claims in a compact format that may be signed or encrypted depending on its construction. A commonly signed JWT is readable by its holder; encoding is not secrecy.",
+      "Verify the cryptographic signature with an allowed algorithm and correct key, then validate applicable expiry, issuer and audience constraints. Merely decoding the payload does not establish trust.",
+      "Illustrative design: verify the token on connection, resolve a trusted user identity and check room membership server-side. Treat client-provided user IDs as untrusted and plan for expiry or revocation.",
+      "A valid token may remain usable until expiry unless the server checks revocation state or rotates keys. Short lifetimes limit exposure but increase renewal work; JWT sessions are not automatically permission freshness."
+    ],
+    "hinglish": [
+      "JWT compact claims rakhta hai aur construction ke hisaab se signed ya encrypted ho sakta hai. Common signed JWT holder padh sakta hai; encoding secrecy nahi hai.",
+      "Allowed algorithm aur correct key se signature verify karo, phir expiry, issuer aur audience validate karo. Payload decode karne se trust establish nahi hota.",
+      "Sample socket auth mein token verify, trusted user resolve aur room membership server par check karo. Client user ID par trust mat karo; expiry aur revocation ka plan rakho.",
+      "Valid token expiry tak chal sakta hai jab tak revocation state check ya key rotate na ho. Short lifetime exposure ghatata hai par renewal badhata hai; permission freshness automatic nahi."
+    ],
+    "questions": [
+      {
+        "question": "What does a JWT represent?",
+        "english": "A JWT carries claims in a compact format that may be signed or encrypted depending on its construction. A commonly signed JWT is readable by its holder; encoding is not secrecy.",
+        "hinglish": "JWT compact claims rakhta hai aur construction ke hisaab se signed ya encrypted ho sakta hai. Common signed JWT holder padh sakta hai; encoding secrecy nahi hai."
+      },
+      {
+        "question": "What must a JWT verifier check?",
+        "english": "Verify the cryptographic signature with an allowed algorithm and correct key, then validate applicable expiry, issuer and audience constraints. Merely decoding the payload does not establish trust.",
+        "hinglish": "Allowed algorithm aur correct key se signature verify karo, phir expiry, issuer aur audience validate karo. Payload decode karne se trust establish nahi hota."
+      },
+      {
+        "question": "How would you authorize a socket connection using a token?",
+        "english": "Illustrative design: verify the token on connection, resolve a trusted user identity and check room membership server-side. Treat client-provided user IDs as untrusted and plan for expiry or revocation.",
+        "hinglish": "Sample socket auth mein token verify, trusted user resolve aur room membership server par check karo. Client user ID par trust mat karo; expiry aur revocation ka plan rakho."
+      },
+      {
+        "question": "What is difficult about stateless token revocation?",
+        "english": "A valid token may remain usable until expiry unless the server checks revocation state or rotates keys. Short lifetimes limit exposure but increase renewal work; JWT sessions are not automatically permission freshness.",
+        "hinglish": "Valid token expiry tak chal sakta hai jab tak revocation state check ya key rotate na ho. Short lifetime exposure ghatata hai par renewal badhata hai; permission freshness automatic nahi."
+      },
+      {
+        "question": "Why could a valid signature still produce unauthorized access?",
+        "english": "Signature validity only proves token integrity. Missing ownership checks, an overly broad audience or stale permissions can still allow improper actions; recheck resource authorization on every sensitive operation.",
+        "hinglish": "Valid signature sirf integrity prove karti hai. Ownership missing, broad audience ya stale permission se unauthorized access ho sakta hai; sensitive operation par resource authorization karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-oauth-2",
+    "name": "OAuth 2.0",
+    "category": "Databases & Auth",
+    "reference": "https://www.rfc-editor.org/rfc/rfc6749",
+    "evidence": "MailLoop/src/auth.ts and Gmail integration: delegated Google access.",
+    "english": [
+      "OAuth delegates scoped access to a resource without sharing the user's password with the client. It is an authorization framework; OpenID Connect adds an identity layer for login.",
+      "The user authorizes at the provider, which returns a code to a registered redirect URI. The client exchanges that code for tokens; state and PKCE address important request and code interception risks.",
+      "For a MailLoop-style app, request the smallest required Gmail scope, retain granted scopes and securely store server-side refresh credentials. Explain why sending access is needed before consent.",
+      "Access tokens are used at resource APIs and generally have limited lifetime. Refresh tokens obtain new access tokens and need stronger storage and revocation handling; neither belongs in client-visible logs."
+    ],
+    "hinglish": [
+      "OAuth user password share kiye bina scoped resource access delegate karta hai. Ye authorization framework hai; login identity layer OpenID Connect add karta hai.",
+      "User provider par permission deta hai, code registered redirect URI par aata hai aur client use tokens se exchange karta hai. State aur PKCE request aur code interception risks address karte hain.",
+      "MailLoop-style app mein minimum Gmail scope maango, granted scopes retain aur refresh credentials securely server par store karo. Consent se pehle sending access ka purpose samjhao.",
+      "Access token resource API mein use hota hai aur generally limited lifetime hoti hai. Refresh token naya access token laata hai; secure storage aur revocation handling chahiye. Dono logs mein mat do."
+    ],
+    "questions": [
+      {
+        "question": "What problem does OAuth 2.0 solve?",
+        "english": "OAuth delegates scoped access to a resource without sharing the user's password with the client. It is an authorization framework; OpenID Connect adds an identity layer for login.",
+        "hinglish": "OAuth user password share kiye bina scoped resource access delegate karta hai. Ye authorization framework hai; login identity layer OpenID Connect add karta hai."
+      },
+      {
+        "question": "How does an authorization code flow work?",
+        "english": "The user authorizes at the provider, which returns a code to a registered redirect URI. The client exchanges that code for tokens; state and PKCE address important request and code interception risks.",
+        "hinglish": "User provider par permission deta hai, code registered redirect URI par aata hai aur client use tokens se exchange karta hai. State aur PKCE request aur code interception risks address karte hain."
+      },
+      {
+        "question": "How would you request Gmail sending permission?",
+        "english": "For a MailLoop-style app, request the smallest required Gmail scope, retain granted scopes and securely store server-side refresh credentials. Explain why sending access is needed before consent.",
+        "hinglish": "MailLoop-style app mein minimum Gmail scope maango, granted scopes retain aur refresh credentials securely server par store karo. Consent se pehle sending access ka purpose samjhao."
+      },
+      {
+        "question": "Why are access and refresh tokens treated differently?",
+        "english": "Access tokens are used at resource APIs and generally have limited lifetime. Refresh tokens obtain new access tokens and need stronger storage and revocation handling; neither belongs in client-visible logs.",
+        "hinglish": "Access token resource API mein use hota hai aur generally limited lifetime hoti hai. Refresh token naya access token laata hai; secure storage aur revocation handling chahiye. Dono logs mein mat do."
+      },
+      {
+        "question": "How would you handle a revoked refresh token?",
+        "english": "Stop repeated refresh attempts, mark the account as requiring reconnection, preserve relevant job state and ask for fresh consent. Revocation cannot be fixed by retrying with the same credential forever.",
+        "hinglish": "Repeated refresh roko, account reconnect-required mark karo, job state preserve aur fresh consent lo. Same revoked credential ko baar-baar retry karne se fix nahi hoga."
+      }
+    ]
+  },
+  {
+    "id": "skill-docker",
+    "name": "Docker",
+    "category": "DevOps & Tools",
+    "reference": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/",
+    "evidence": "MailLoop/README.md and docker-compose.yml: local PostgreSQL container; not proof of containerized production app deployment.",
+    "english": [
+      "A container packages processes and dependencies using operating-system isolation while sharing the host kernel. MailLoop uses Docker for local PostgreSQL, not as evidence of an entire production deployment.",
+      "An image is a reusable filesystem template; a container is a running or stopped instance with a writable layer. Volumes persist data independently of that container's lifetime.",
+      "Follow MailLoop's named-volume setup, keep credentials in environment configuration, and back up data before destructive commands. Recreating the container should reuse the intended volume.",
+      "Shared kernels, mounted host paths and excessive privileges can expose the host. Limit permissions, pin appropriate images and keep secrets out of image layers; containers also need patching."
+    ],
+    "hinglish": [
+      "Container OS isolation ke saath process aur dependencies package karta hai, host kernel share hota hai. MailLoop local PostgreSQL ke liye Docker use karta hai; poora production deploy prove nahi hota.",
+      "Image reusable filesystem template hai, container uska instance aur writable layer hai. Volume data ko container lifetime se independent persist karta hai.",
+      "MailLoop jaise named volume setup mein credentials env config se do aur destructive command se pehle backup rakho. Container recreate par intended volume reuse hona chahiye.",
+      "Shared kernel, host mounts aur excessive privilege host expose kar sakte hain. Permissions limit, images pin aur secrets layers se bahar rakho; containers ko bhi patching chahiye."
+    ],
+    "questions": [
+      {
+        "question": "What does a container isolate?",
+        "english": "A container packages processes and dependencies using operating-system isolation while sharing the host kernel. MailLoop uses Docker for local PostgreSQL, not as evidence of an entire production deployment.",
+        "hinglish": "Container OS isolation ke saath process aur dependencies package karta hai, host kernel share hota hai. MailLoop local PostgreSQL ke liye Docker use karta hai; poora production deploy prove nahi hota."
+      },
+      {
+        "question": "How do images, containers and volumes differ?",
+        "english": "An image is a reusable filesystem template; a container is a running or stopped instance with a writable layer. Volumes persist data independently of that container's lifetime.",
+        "hinglish": "Image reusable filesystem template hai, container uska instance aur writable layer hai. Volume data ko container lifetime se independent persist karta hai."
+      },
+      {
+        "question": "How would you preserve a local database across recreation?",
+        "english": "Follow MailLoop's named-volume setup, keep credentials in environment configuration, and back up data before destructive commands. Recreating the container should reuse the intended volume.",
+        "hinglish": "MailLoop jaise named volume setup mein credentials env config se do aur destructive command se pehle backup rakho. Container recreate par intended volume reuse hona chahiye."
+      },
+      {
+        "question": "Why is a container not a complete security boundary?",
+        "english": "Shared kernels, mounted host paths and excessive privileges can expose the host. Limit permissions, pin appropriate images and keep secrets out of image layers; containers also need patching.",
+        "hinglish": "Shared kernel, host mounts aur excessive privilege host expose kar sakte hain. Permissions limit, images pin aur secrets layers se bahar rakho; containers ko bhi patching chahiye."
+      },
+      {
+        "question": "How would you troubleshoot an app that cannot reach PostgreSQL?",
+        "english": "Check container health, credentials and published port. A host process uses the mapped host port; another Compose service generally uses the service name and internal port, not localhost.",
+        "hinglish": "Health, credentials aur published port dekho. Host app mapped host port use karta hai; doosra Compose service usually service name aur internal port use karega, localhost nahi."
+      }
+    ]
+  },
+  {
+    "id": "skill-aws",
+    "name": "AWS (EC2 & S3)",
+    "category": "DevOps & Tools",
+    "reference": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html",
+    "evidence": "Resume-listed; not verified in these three projects. EC2 and S3 examples below are illustrative.",
+    "english": [
+      "EC2 supplies virtual compute instances where you manage a server environment. S3 stores objects in buckets; it is not a mounted relational database or a replacement for EC2 execution.",
+      "Assign an appropriate IAM role and let the SDK obtain temporary credentials. Policies should restrict actions and resources; bucket policies and public-access controls also affect access.",
+      "Illustrative architecture: run the app on EC2 behind HTTPS, store uploads in a private S3 bucket, and issue short-lived presigned URLs after ownership checks. Define size and content constraints.",
+      "You manage patching, capacity, deployment and recovery for instances. S3 durability does not replace versioning, deletion protection or an intentional backup policy; storage and transfer incur costs."
+    ],
+    "hinglish": [
+      "EC2 virtual compute instance deta hai jahan server environment manage karte ho. S3 buckets mein objects store karta hai; relational database ya EC2 execution ka replacement nahi.",
+      "IAM role assign karo aur SDK ko temporary credentials lene do. Policies actions aur resources restrict karein; bucket policy aur public-access controls bhi matter karte hain.",
+      "Sample architecture mein EC2 app ko HTTPS ke peeche, uploads private S3 mein rakho. Ownership check ke baad short-lived presigned URL do; size aur content limits define karo.",
+      "EC2 mein patching, capacity, deployment aur recovery manage karne padte hain. S3 durability backup policy ya deletion protection ka replacement nahi; storage aur transfer ka cost bhi hai."
+    ],
+    "questions": [
+      {
+        "question": "How do EC2 and S3 serve different purposes?",
+        "english": "EC2 supplies virtual compute instances where you manage a server environment. S3 stores objects in buckets; it is not a mounted relational database or a replacement for EC2 execution.",
+        "hinglish": "EC2 virtual compute instance deta hai jahan server environment manage karte ho. S3 buckets mein objects store karta hai; relational database ya EC2 execution ka replacement nahi."
+      },
+      {
+        "question": "How does an application access S3 without embedded keys?",
+        "english": "Assign an appropriate IAM role and let the SDK obtain temporary credentials. Policies should restrict actions and resources; bucket policies and public-access controls also affect access.",
+        "hinglish": "IAM role assign karo aur SDK ko temporary credentials lene do. Policies actions aur resources restrict karein; bucket policy aur public-access controls bhi matter karte hain."
+      },
+      {
+        "question": "How would you host an app with private uploads?",
+        "english": "Illustrative architecture: run the app on EC2 behind HTTPS, store uploads in a private S3 bucket, and issue short-lived presigned URLs after ownership checks. Define size and content constraints.",
+        "hinglish": "Sample architecture mein EC2 app ko HTTPS ke peeche, uploads private S3 mein rakho. Ownership check ke baad short-lived presigned URL do; size aur content limits define karo."
+      },
+      {
+        "question": "What operational cost comes with EC2 compared with managed hosting?",
+        "english": "You manage patching, capacity, deployment and recovery for instances. S3 durability does not replace versioning, deletion protection or an intentional backup policy; storage and transfer incur costs.",
+        "hinglish": "EC2 mein patching, capacity, deployment aur recovery manage karne padte hain. S3 durability backup policy ya deletion protection ka replacement nahi; storage aur transfer ka cost bhi hai."
+      },
+      {
+        "question": "How would you troubleshoot an S3 AccessDenied response?",
+        "english": "Check the caller identity, IAM and bucket policies, explicit denies, encryption-key permissions and object key. For a presigned URL also inspect expiry and signed request details.",
+        "hinglish": "Caller identity, IAM/bucket policies, explicit deny, encryption key permission aur object key check karo. Presigned URL mein expiry aur signed request details bhi dekho."
+      }
+    ]
+  },
+  {
+    "id": "skill-git",
+    "name": "Git",
+    "category": "DevOps & Tools",
+    "reference": "https://git-scm.com/docs",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "Git records versioned snapshots and supports branching, comparison and recovery. A repository history is not proof of a particular person's collaboration experience; these study notes make no such claim.",
+      "The working tree contains current files; the index stages selected changes for the next commit; a commit records a snapshot with parent history. Stage deliberately to keep unrelated changes separate.",
+      "Illustrative workflow: inspect status, use a separate worktree or clean branch, reproduce the bug and commit the focused fix. Preserve uncommitted work rather than discarding it.",
+      "Revert creates a new commit undoing a change and is usually suitable for shared history. Reset moves a reference and can discard local changes depending on mode; rewriting shared history needs coordination."
+    ],
+    "hinglish": [
+      "Git snapshots, branches, diff aur recovery deta hai. Repository history se kisi ki personal collaboration experience assume nahi karna; yahan aisa claim nahi hai.",
+      "Working tree current files hai, index next commit ke selected changes rakhta hai aur commit snapshot plus parent history record karta hai. Unrelated changes alag stage karo.",
+      "Sample workflow mein status dekho, separate worktree ya clean branch use karo, bug reproduce aur focused fix commit karo. Uncommitted work preserve karo, discard mat karo.",
+      "Revert naya undo commit banata hai, shared history ke liye useful hai. Reset reference move karta hai aur mode ke hisaab se local changes hata sakta hai; shared history rewrite coordinated honi chahiye."
+    ],
+    "questions": [
+      {
+        "question": "Why use Git while developing a feature?",
+        "english": "Git records versioned snapshots and supports branching, comparison and recovery. A repository history is not proof of a particular person's collaboration experience; these study notes make no such claim.",
+        "hinglish": "Git snapshots, branches, diff aur recovery deta hai. Repository history se kisi ki personal collaboration experience assume nahi karna; yahan aisa claim nahi hai."
+      },
+      {
+        "question": "How do working tree, staging area and commit differ?",
+        "english": "The working tree contains current files; the index stages selected changes for the next commit; a commit records a snapshot with parent history. Stage deliberately to keep unrelated changes separate.",
+        "hinglish": "Working tree current files hai, index next commit ke selected changes rakhta hai aur commit snapshot plus parent history record karta hai. Unrelated changes alag stage karo."
+      },
+      {
+        "question": "How would you fix a bug without mixing unfinished work?",
+        "english": "Illustrative workflow: inspect status, use a separate worktree or clean branch, reproduce the bug and commit the focused fix. Preserve uncommitted work rather than discarding it.",
+        "hinglish": "Sample workflow mein status dekho, separate worktree ya clean branch use karo, bug reproduce aur focused fix commit karo. Uncommitted work preserve karo, discard mat karo."
+      },
+      {
+        "question": "When would you prefer revert over reset?",
+        "english": "Revert creates a new commit undoing a change and is usually suitable for shared history. Reset moves a reference and can discard local changes depending on mode; rewriting shared history needs coordination.",
+        "hinglish": "Revert naya undo commit banata hai, shared history ke liye useful hai. Reset reference move karta hai aur mode ke hisaab se local changes hata sakta hai; shared history rewrite coordinated honi chahiye."
+      },
+      {
+        "question": "How would you resolve a merge conflict safely?",
+        "english": "Read both intents and the common context, edit the final behavior, remove conflict markers and run relevant checks. Inspect the staged diff before completing the merge.",
+        "hinglish": "Dono changes ka intent aur context samjho, final behavior edit karo, markers hatao aur relevant checks chalao. Merge complete se pehle staged diff dekho."
+      }
+    ]
+  },
+  {
+    "id": "skill-github",
+    "name": "GitHub",
+    "category": "DevOps & Tools",
+    "reference": "https://docs.github.com/en/pull-requests",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "GitHub hosts repositories and provides pull requests, issues, review and automation. Git handles local version history; GitHub workflows and account permissions are additional services.",
+      "A pull request compares branches, records discussion and can require status checks before merging. Good descriptions explain the concrete behavior change and evidence from validation.",
+      "Illustrative workflow: trigger on pull requests, install pinned dependencies with a lockfile and run relevant lint, type and test commands. Give the automation token only the permissions it needs.",
+      "Checks only cover configured assertions. Review catches unclear requirements, risky assumptions and maintainability issues; protection can enforce review but cannot guarantee design correctness."
+    ],
+    "hinglish": [
+      "GitHub repository hosting, PR, issues, review aur automation deta hai. Git local history handle karta hai; GitHub workflows aur permissions extra services hain.",
+      "PR branches compare karta hai, discussion record aur merge se pehle checks require kar sakta hai. Description mein concrete behavior change aur validation evidence do.",
+      "Sample CI mein PR trigger, lockfile se pinned install aur lint, type, test commands chalao. Automation token ko minimum required permissions do.",
+      "Checks sirf configured assertions cover karte hain. Review unclear requirements aur risky assumptions pakadta hai; protection review enforce kar sakti hai, design correctness guarantee nahi."
+    ],
+    "questions": [
+      {
+        "question": "What does GitHub add around Git?",
+        "english": "GitHub hosts repositories and provides pull requests, issues, review and automation. Git handles local version history; GitHub workflows and account permissions are additional services.",
+        "hinglish": "GitHub repository hosting, PR, issues, review aur automation deta hai. Git local history handle karta hai; GitHub workflows aur permissions extra services hain."
+      },
+      {
+        "question": "How does a pull request support review?",
+        "english": "A pull request compares branches, records discussion and can require status checks before merging. Good descriptions explain the concrete behavior change and evidence from validation.",
+        "hinglish": "PR branches compare karta hai, discussion record aur merge se pehle checks require kar sakta hai. Description mein concrete behavior change aur validation evidence do."
+      },
+      {
+        "question": "How would you add a simple CI check?",
+        "english": "Illustrative workflow: trigger on pull requests, install pinned dependencies with a lockfile and run relevant lint, type and test commands. Give the automation token only the permissions it needs.",
+        "hinglish": "Sample CI mein PR trigger, lockfile se pinned install aur lint, type, test commands chalao. Automation token ko minimum required permissions do."
+      },
+      {
+        "question": "Why should branch protection not replace human review?",
+        "english": "Checks only cover configured assertions. Review catches unclear requirements, risky assumptions and maintainability issues; protection can enforce review but cannot guarantee design correctness.",
+        "hinglish": "Checks sirf configured assertions cover karte hain. Review unclear requirements aur risky assumptions pakadta hai; protection review enforce kar sakti hai, design correctness guarantee nahi."
+      },
+      {
+        "question": "How would you troubleshoot a check that passes locally but fails in CI?",
+        "english": "Compare runtime versions, environment, filesystem case sensitivity and install commands. Reproduce from a clean checkout and inspect the first meaningful error rather than rerunning indefinitely.",
+        "hinglish": "Runtime versions, env, filesystem case aur install commands compare karo. Clean checkout mein reproduce aur pehla meaningful error dekho; bas rerun karte mat raho."
+      }
+    ]
+  },
+  {
+    "id": "skill-postman",
+    "name": "Postman",
+    "category": "DevOps & Tools",
+    "reference": "https://learning.postman.com/docs/getting-started/overview/",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "Postman helps compose HTTP requests, inspect responses and organize repeatable API checks. It complements automated tests but does not by itself prove server correctness.",
+      "Variables parameterize base URLs and credentials across environments. Keep secret values private and separate test data from production; shared collection exports should not contain live credentials.",
+      "Illustrative collection: authenticate with a test account, request its messages, assert status and response shape, then test another user's conversation and expect an authorization failure.",
+      "It does not prove browser CORS behavior, keyboard usability, concurrent correctness or production scalability. Add browser and concurrency checks where those properties matter."
+    ],
+    "hinglish": [
+      "Postman requests banane, responses inspect aur repeatable API checks organize karne mein help karta hai. Automated tests ko complement karta hai, server correctness ka proof akela nahi.",
+      "Variables base URLs aur credentials environments ke hisaab se badalte hain. Secrets private aur test data production se alag rakho; collection export mein live credentials mat rakho.",
+      "Sample collection mein test account se auth, apne messages request aur status/shape assert karo. Doosre user ki conversation request par authorization failure expect karo.",
+      "Successful Postman request browser CORS, keyboard usability, concurrency ya production scale prove nahi karti. Jahan zaroori ho browser aur concurrency checks alag karo."
+    ],
+    "questions": [
+      {
+        "question": "Why use Postman during API development?",
+        "english": "Postman helps compose HTTP requests, inspect responses and organize repeatable API checks. It complements automated tests but does not by itself prove server correctness.",
+        "hinglish": "Postman requests banane, responses inspect aur repeatable API checks organize karne mein help karta hai. Automated tests ko complement karta hai, server correctness ka proof akela nahi."
+      },
+      {
+        "question": "How do environment variables help a collection?",
+        "english": "Variables parameterize base URLs and credentials across environments. Keep secret values private and separate test data from production; shared collection exports should not contain live credentials.",
+        "hinglish": "Variables base URLs aur credentials environments ke hisaab se badalte hain. Secrets private aur test data production se alag rakho; collection export mein live credentials mat rakho."
+      },
+      {
+        "question": "How would you check a protected messages API?",
+        "english": "Illustrative collection: authenticate with a test account, request its messages, assert status and response shape, then test another user's conversation and expect an authorization failure.",
+        "hinglish": "Sample collection mein test account se auth, apne messages request aur status/shape assert karo. Doosre user ki conversation request par authorization failure expect karo."
+      },
+      {
+        "question": "What cannot a successful Postman request prove?",
+        "english": "It does not prove browser CORS behavior, keyboard usability, concurrent correctness or production scalability. Add browser and concurrency checks where those properties matter.",
+        "hinglish": "Successful Postman request browser CORS, keyboard usability, concurrency ya production scale prove nahi karti. Jahan zaroori ho browser aur concurrency checks alag karo."
+      },
+      {
+        "question": "How would you investigate a 401 that occurs only in Postman?",
+        "english": "Compare headers, cookies, token expiry and target environment with the working client. Check whether authentication uses a cookie session or bearer token instead of guessing the credential format.",
+        "hinglish": "Headers, cookies, token expiry aur environment working client se compare karo. Auth cookie session hai ya bearer token, pehle samjho; format guess mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-claude-code",
+    "name": "Claude Code",
+    "category": "DevOps & Tools",
+    "reference": "https://code.claude.com/docs/en/overview",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "Claude Code can assist with repository exploration, editing and command-based verification. Its output is a proposal to inspect and test; resume listing does not establish how it was used on these projects.",
+      "Provide the goal, constraints and relevant files, and have it read local instructions before editing. Tool permissions constrain actions, while clear acceptance criteria make the result reviewable.",
+      "Illustrative workflow: supply a reproducible failing request, ask it to trace validation and authorization, implement a focused fix, then inspect the diff and run the relevant check.",
+      "Generated code can use wrong versions, overlook ownership checks or change unrelated behavior. Verify the installed API and tests; avoid exposing secrets or permitting unnecessary external actions."
+    ],
+    "hinglish": [
+      "Claude Code repo samajhne, editing aur commands se verification mein help kar sakta hai. Output inspect aur test karna chahiye; resume listing se in projects ka usage prove nahi hota.",
+      "Goal, constraints aur relevant files do; edit se pehle local instructions padhwao. Permissions actions constrain karti hain aur clear acceptance criteria result reviewable banate hain.",
+      "Sample workflow mein failing request do, validation aur authorization trace karwao, focused fix implement aur diff inspect karke relevant check chalao.",
+      "Generated patch wrong version, missing ownership check ya unrelated changes la sakta hai. Installed API aur tests verify karo; secrets aur unnecessary external actions se bacho."
+    ],
+    "questions": [
+      {
+        "question": "What can a coding agent help with?",
+        "english": "Claude Code can assist with repository exploration, editing and command-based verification. Its output is a proposal to inspect and test; resume listing does not establish how it was used on these projects.",
+        "hinglish": "Claude Code repo samajhne, editing aur commands se verification mein help kar sakta hai. Output inspect aur test karna chahiye; resume listing se in projects ka usage prove nahi hota."
+      },
+      {
+        "question": "How should repository context guide an agent?",
+        "english": "Provide the goal, constraints and relevant files, and have it read local instructions before editing. Tool permissions constrain actions, while clear acceptance criteria make the result reviewable.",
+        "hinglish": "Goal, constraints aur relevant files do; edit se pehle local instructions padhwao. Permissions actions constrain karti hain aur clear acceptance criteria result reviewable banate hain."
+      },
+      {
+        "question": "How would you use an agent to fix an API bug?",
+        "english": "Illustrative workflow: supply a reproducible failing request, ask it to trace validation and authorization, implement a focused fix, then inspect the diff and run the relevant check.",
+        "hinglish": "Sample workflow mein failing request do, validation aur authorization trace karwao, focused fix implement aur diff inspect karke relevant check chalao."
+      },
+      {
+        "question": "What is risky about accepting a generated patch blindly?",
+        "english": "Generated code can use wrong versions, overlook ownership checks or change unrelated behavior. Verify the installed API and tests; avoid exposing secrets or permitting unnecessary external actions.",
+        "hinglish": "Generated patch wrong version, missing ownership check ya unrelated changes la sakta hai. Installed API aur tests verify karo; secrets aur unnecessary external actions se bacho."
+      },
+      {
+        "question": "How would you recover when an agent makes unrelated edits?",
+        "english": "Stop dependent changes, inspect the diff and preserve user-owned work. Revert only the unwanted agent changes, clarify scope and repeat the smallest relevant verification.",
+        "hinglish": "Dependent changes roko, diff inspect aur user work preserve karo. Sirf unwanted agent changes undo karo, scope clear aur smallest relevant verification repeat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-cursor",
+    "name": "Cursor",
+    "category": "DevOps & Tools",
+    "reference": "https://docs.cursor.com/",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "Cursor combines an editor with AI-assisted navigation and changes. It can accelerate routine edits, but suggestions still need review for correctness, project conventions and data handling.",
+      "The assistant works from available repository and prompt context. Narrow relevant files and explicit constraints reduce guesses; missing context can still produce plausible but incompatible code.",
+      "Illustrative request: identify the component, define the behavior to preserve, limit the files and require a diff plus a focused UI check. Review generated edits before committing them.",
+      "They can save repeated work but increase review cost and hide accidental behavior changes. Prefer a bounded change with observable acceptance criteria and inspect all modified files."
+    ],
+    "hinglish": [
+      "Cursor editor ke saath AI navigation aur changes deta hai. Routine edits fast ho sakte hain, par correctness, conventions aur data handling review karna zaroori hai.",
+      "Assistant available repo aur prompt context se kaam karta hai. Relevant files aur clear constraints guesses ghatate hain; missing context plausible par incompatible code la sakta hai.",
+      "Sample request mein component, preserved behavior, file scope aur diff plus UI check specify karo. Commit se pehle generated edits review karo.",
+      "Broad automation repeated work bacha sakti hai par review cost aur accidental changes badhati hai. Bounded change aur observable acceptance criteria rakho; saari modified files inspect karo."
+    ],
+    "questions": [
+      {
+        "question": "What role can Cursor play in development?",
+        "english": "Cursor combines an editor with AI-assisted navigation and changes. It can accelerate routine edits, but suggestions still need review for correctness, project conventions and data handling.",
+        "hinglish": "Cursor editor ke saath AI navigation aur changes deta hai. Routine edits fast ho sakte hain, par correctness, conventions aur data handling review karna zaroori hai."
+      },
+      {
+        "question": "Why does selecting relevant context matter?",
+        "english": "The assistant works from available repository and prompt context. Narrow relevant files and explicit constraints reduce guesses; missing context can still produce plausible but incompatible code.",
+        "hinglish": "Assistant available repo aur prompt context se kaam karta hai. Relevant files aur clear constraints guesses ghatate hain; missing context plausible par incompatible code la sakta hai."
+      },
+      {
+        "question": "How would you ask for a component refactor?",
+        "english": "Illustrative request: identify the component, define the behavior to preserve, limit the files and require a diff plus a focused UI check. Review generated edits before committing them.",
+        "hinglish": "Sample request mein component, preserved behavior, file scope aur diff plus UI check specify karo. Commit se pehle generated edits review karo."
+      },
+      {
+        "question": "What tradeoff comes with broad automated changes?",
+        "english": "They can save repeated work but increase review cost and hide accidental behavior changes. Prefer a bounded change with observable acceptance criteria and inspect all modified files.",
+        "hinglish": "Broad automation repeated work bacha sakti hai par review cost aur accidental changes badhati hai. Bounded change aur observable acceptance criteria rakho; saari modified files inspect karo."
+      },
+      {
+        "question": "How would you investigate a suggestion using a nonexistent API?",
+        "english": "Check the installed package version and official API, then give the assistant the exact signature or error. Remove fabricated imports and validate the revised code with appropriate tooling.",
+        "hinglish": "Installed version aur official API dekho; assistant ko exact signature ya error do. Fabricated imports hatao aur revised code suitable tooling se validate karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-dodo-payments",
+    "name": "Dodo Payments",
+    "category": "DevOps & Tools",
+    "reference": "https://docs.dodopayments.com/developer-resources/integration-guide",
+    "evidence": "MailLoop/src/lib/billing/config.ts, dodo.ts, checkout.ts and webhooks.ts; docs/dodo-test-billing.md: test_mode only.",
+    "english": [
+      "It provides checkout and billing integration. MailLoop's current configuration explicitly permits test_mode only; this demonstrates test billing logic, not live revenue or production payment processing.",
+      "Verify the signature against the raw request body, deduplicate the event, match the expected customer or subscription and update server state transactionally. A redirect to a success page is not payment proof.",
+      "Use MailLoop's documented test-mode setup with test products, create checkout server-side and exercise verified success and failure webhooks. Check entitlements in stored state instead of trusting URL parameters.",
+      "Events may be delayed, repeated or arrive out of order. Store provider IDs and event evidence, apply allowed state transitions, and reconcile uncertain outcomes before granting or revoking access."
+    ],
+    "hinglish": [
+      "Dodo checkout aur billing integration deta hai. MailLoop config sirf test_mode allow karta hai; ye test billing logic hai, live revenue ya production payments ka proof nahi.",
+      "Raw body par signature verify, event dedup, correct customer/subscription match aur server state transactionally update karo. Success-page redirect payment proof nahi hai.",
+      "MailLoop documented test mode aur test products use karo, checkout server se create aur verified success/failure webhooks test karo. URL params ke badle stored entitlements check karo.",
+      "Events late, duplicate ya out of order ho sakte hain. Provider IDs aur event evidence store, allowed transitions apply aur uncertain outcome reconcile karke access badlo."
+    ],
+    "questions": [
+      {
+        "question": "What is Dodo Payments used for in MailLoop?",
+        "english": "It provides checkout and billing integration. MailLoop's current configuration explicitly permits test_mode only; this demonstrates test billing logic, not live revenue or production payment processing.",
+        "hinglish": "Dodo checkout aur billing integration deta hai. MailLoop config sirf test_mode allow karta hai; ye test billing logic hai, live revenue ya production payments ka proof nahi."
+      },
+      {
+        "question": "How should a webhook update access?",
+        "english": "Verify the signature against the raw request body, deduplicate the event, match the expected customer or subscription and update server state transactionally. A redirect to a success page is not payment proof.",
+        "hinglish": "Raw body par signature verify, event dedup, correct customer/subscription match aur server state transactionally update karo. Success-page redirect payment proof nahi hai."
+      },
+      {
+        "question": "How would you test a checkout flow safely?",
+        "english": "Use MailLoop's documented test-mode setup with test products, create checkout server-side and exercise verified success and failure webhooks. Check entitlements in stored state instead of trusting URL parameters.",
+        "hinglish": "MailLoop documented test mode aur test products use karo, checkout server se create aur verified success/failure webhooks test karo. URL params ke badle stored entitlements check karo."
+      },
+      {
+        "question": "Why must provider events be reconciled carefully?",
+        "english": "Events may be delayed, repeated or arrive out of order. Store provider IDs and event evidence, apply allowed state transitions, and reconcile uncertain outcomes before granting or revoking access.",
+        "hinglish": "Events late, duplicate ya out of order ho sakte hain. Provider IDs aur event evidence store, allowed transitions apply aur uncertain outcome reconcile karke access badlo."
+      },
+      {
+        "question": "What would you check when checkout succeeds but access is missing?",
+        "english": "In test mode, trace checkout, provider object IDs, webhook delivery, signature verification and local entitlement writes. Do not switch to live mode to debug a broken test lifecycle.",
+        "hinglish": "Test mode mein checkout IDs, webhook delivery, signature verification aur entitlement writes trace karo. Broken test lifecycle debug karne ke liye live mode par switch mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-vercel-analytics",
+    "name": "Vercel Analytics",
+    "category": "DevOps & Tools",
+    "reference": "https://vercel.com/docs/analytics",
+    "evidence": "PurePin/src/app/layout.tsx and BuzzLine/src/app/layout.tsx mount Analytics; both package.json files list @vercel/analytics. PurePin mounts it only when VERCEL is 1.",
+    "english": [
+      "It provides website traffic insights such as page views and visitors. PurePin and BuzzLine mount the Analytics component; that source evidence does not establish any particular traffic result.",
+      "The package's framework component is mounted in the app layout and sends supported analytics events when configured and deployed appropriately. Dashboard enablement and deployment configuration still matter.",
+      "Illustrative plan: compare completion events against relevant visits over a defined period, excluding internal testing. Define events and privacy rules before collection; do not invent measured improvements.",
+      "Traffic counts describe usage, while server failures and stack traces need dedicated observability. Ad blockers, sampling or plan constraints can also affect what data is available."
+    ],
+    "hinglish": [
+      "Vercel Web Analytics page views aur visitors jaise traffic insights deta hai. PurePin aur BuzzLine component mount karte hain; source se koi traffic result assume nahi karna.",
+      "Framework component app layout mein mount hota hai aur configured deployment par events bhejta hai. Dashboard enablement aur deployment configuration bhi zaroori hain.",
+      "Sample plan mein defined period par completion events ko relevant visits se compare karo, internal tests exclude karo. Events aur privacy pehle define karo; measured improvement invent mat karo.",
+      "Traffic counts usage batate hain; server failures aur stack traces ke liye separate observability chahiye. Ad blockers ya plan constraints available data affect kar sakte hain."
+    ],
+    "questions": [
+      {
+        "question": "What does Vercel Web Analytics measure?",
+        "english": "It provides website traffic insights such as page views and visitors. PurePin and BuzzLine mount the Analytics component; that source evidence does not establish any particular traffic result.",
+        "hinglish": "Vercel Web Analytics page views aur visitors jaise traffic insights deta hai. PurePin aur BuzzLine component mount karte hain; source se koi traffic result assume nahi karna."
+      },
+      {
+        "question": "How is instrumentation connected to a Next.js app?",
+        "english": "The package's framework component is mounted in the app layout and sends supported analytics events when configured and deployed appropriately. Dashboard enablement and deployment configuration still matter.",
+        "hinglish": "Framework component app layout mein mount hota hai aur configured deployment par events bhejta hai. Dashboard enablement aur deployment configuration bhi zaroori hain."
+      },
+      {
+        "question": "How would you evaluate a new downloader flow?",
+        "english": "Illustrative plan: compare completion events against relevant visits over a defined period, excluding internal testing. Define events and privacy rules before collection; do not invent measured improvements.",
+        "hinglish": "Sample plan mein defined period par completion events ko relevant visits se compare karo, internal tests exclude karo. Events aur privacy pehle define karo; measured improvement invent mat karo."
+      },
+      {
+        "question": "Why is analytics not a substitute for error monitoring?",
+        "english": "Traffic counts describe usage, while server failures and stack traces need dedicated observability. Ad blockers, sampling or plan constraints can also affect what data is available.",
+        "hinglish": "Traffic counts usage batate hain; server failures aur stack traces ke liye separate observability chahiye. Ad blockers ya plan constraints available data affect kar sakte hain."
+      },
+      {
+        "question": "How would you debug an empty analytics dashboard?",
+        "english": "Check deployment, dashboard enablement, component placement and blocked requests. Confirm the correct project and time window, and avoid expecting local development traffic to behave exactly like production.",
+        "hinglish": "Deployment, dashboard enablement, component placement aur blocked requests check karo. Correct project aur time window dekho; local dev traffic ko production jaisa assume mat karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-dsa",
+    "name": "DSA",
+    "category": "Concepts",
+    "reference": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "evidence": "Resume-listed; not verified in these three projects. Project-related examples illustrate reasoning rather than verified formal DSA implementations.",
+    "english": [
+      "The structure determines lookup, update and memory costs. Arrays, maps, sets and queues solve different access patterns; choose from the workload rather than from a favorite algorithm.",
+      "Expected hash-map performance depends on hashing assumptions; worst-case behavior can be worse. Big-O describes growth, not actual latency, and ignores constants and hardware effects.",
+      "Illustrative campaign preprocessing: index normalized recipient addresses in a map or set, then look up duplicates while scanning once. State normalization rules and account for O(n) memory.",
+      "Sorting can support ordered output and adjacent duplicate detection, often in O(n log n) time. A hash set offers expected linear processing with extra memory and less useful ordering guarantees."
+    ],
+    "hinglish": [
+      "Data structure lookup, update aur memory cost decide karta hai. Array, map, set aur queue alag patterns solve karte hain; workload se choose karo, favorite algorithm se nahi.",
+      "Hash map ka expected O(1) hashing assumptions par depend hai; worst case worse ho sakta hai. Big-O growth batata hai, actual latency aur constants nahi.",
+      "Sample preprocessing mein normalized recipient addresses map/set mein rakho aur one pass mein duplicates dekho. Normalization rules clear rakho; O(n) memory lagegi.",
+      "Sorting ordered output aur adjacent duplicate check deta hai, usually O(n log n). Hash set expected linear processing deta hai, par extra memory aur weaker ordering hoti hai."
+    ],
+    "questions": [
+      {
+        "question": "Why do data structures matter beyond coding interviews?",
+        "english": "The structure determines lookup, update and memory costs. Arrays, maps, sets and queues solve different access patterns; choose from the workload rather than from a favorite algorithm.",
+        "hinglish": "Data structure lookup, update aur memory cost decide karta hai. Array, map, set aur queue alag patterns solve karte hain; workload se choose karo, favorite algorithm se nahi."
+      },
+      {
+        "question": "How do expected O(1) and worst-case O(1) differ?",
+        "english": "Expected hash-map performance depends on hashing assumptions; worst-case behavior can be worse. Big-O describes growth, not actual latency, and ignores constants and hardware effects.",
+        "hinglish": "Hash map ka expected O(1) hashing assumptions par depend hai; worst case worse ho sakta hai. Big-O growth batata hai, actual latency aur constants nahi."
+      },
+      {
+        "question": "How would you avoid repeated linear scans of recipients?",
+        "english": "Illustrative campaign preprocessing: index normalized recipient addresses in a map or set, then look up duplicates while scanning once. State normalization rules and account for O(n) memory.",
+        "hinglish": "Sample preprocessing mein normalized recipient addresses map/set mein rakho aur one pass mein duplicates dekho. Normalization rules clear rakho; O(n) memory lagegi."
+      },
+      {
+        "question": "When is sorting preferable to using a hash set?",
+        "english": "Sorting can support ordered output and adjacent duplicate detection, often in O(n log n) time. A hash set offers expected linear processing with extra memory and less useful ordering guarantees.",
+        "hinglish": "Sorting ordered output aur adjacent duplicate check deta hai, usually O(n log n). Hash set expected linear processing deta hai, par extra memory aur weaker ordering hoti hai."
+      },
+      {
+        "question": "How would you debug an algorithm that times out?",
+        "english": "Estimate input size and operation count, check nested scans and hidden copying, then profile. Verify correctness after optimization, including empty inputs, duplicates and boundary values.",
+        "hinglish": "Input size aur operations estimate, nested scans aur hidden copying check, phir profile karo. Optimization ke baad empty input, duplicates aur boundaries par correctness verify karo."
+      }
+    ]
+  },
+  {
+    "id": "skill-oop",
+    "name": "OOP",
+    "category": "Concepts",
+    "reference": "https://docs.oracle.com/javase/tutorial/java/concepts/",
+    "evidence": "Resume-listed; not verified in these three projects.",
+    "english": [
+      "OOP groups state and behavior behind interfaces using concepts such as encapsulation and polymorphism. It can clarify responsibilities, but adding classes alone does not produce good design.",
+      "Clients depend on an interface while different implementations supply behavior. A sender interface could have a real provider and a fake test implementation without switching on provider names everywhere.",
+      "Illustrative design: inject a sender and clock, keep orchestration separate from provider calls, and test observable outcomes with fakes. Do not claim this class design exists in the projects.",
+      "Composition lets small collaborators change independently and reduces coupling to inherited internals. Inheritance can still fit genuine substitutable types, but deep hierarchies make behavior harder to trace."
+    ],
+    "hinglish": [
+      "OOP state aur behavior ko interfaces ke peeche organize karta hai, encapsulation aur polymorphism use karke. Sirf classes add karne se design achha nahi ho jaata.",
+      "Client interface par depend karta hai, implementations behavior deti hain. Sender interface ka real provider aur fake test implementation ho sakta hai, har jagah provider-name branching ke bina.",
+      "Sample design mein sender aur clock inject, orchestration ko provider calls se alag aur outcomes fakes se test karo. Ye class design projects mein exist karta hai aisa claim nahi hai.",
+      "Composition se small collaborators independent badalte hain aur inherited internals ki coupling kam hoti hai. Genuine substitutable types mein inheritance useful hai; deep hierarchy tracing mushkil karti hai."
+    ],
+    "questions": [
+      {
+        "question": "What does object-oriented design organize?",
+        "english": "OOP groups state and behavior behind interfaces using concepts such as encapsulation and polymorphism. It can clarify responsibilities, but adding classes alone does not produce good design.",
+        "hinglish": "OOP state aur behavior ko interfaces ke peeche organize karta hai, encapsulation aur polymorphism use karke. Sirf classes add karne se design achha nahi ho jaata."
+      },
+      {
+        "question": "How does polymorphism reduce branching?",
+        "english": "Clients depend on an interface while different implementations supply behavior. A sender interface could have a real provider and a fake test implementation without switching on provider names everywhere.",
+        "hinglish": "Client interface par depend karta hai, implementations behavior deti hain. Sender interface ka real provider aur fake test implementation ho sakta hai, har jagah provider-name branching ke bina."
+      },
+      {
+        "question": "How would you design a testable notification service?",
+        "english": "Illustrative design: inject a sender and clock, keep orchestration separate from provider calls, and test observable outcomes with fakes. Do not claim this class design exists in the projects.",
+        "hinglish": "Sample design mein sender aur clock inject, orchestration ko provider calls se alag aur outcomes fakes se test karo. Ye class design projects mein exist karta hai aisa claim nahi hai."
+      },
+      {
+        "question": "Why prefer composition over deep inheritance in many services?",
+        "english": "Composition lets small collaborators change independently and reduces coupling to inherited internals. Inheritance can still fit genuine substitutable types, but deep hierarchies make behavior harder to trace.",
+        "hinglish": "Composition se small collaborators independent badalte hain aur inherited internals ki coupling kam hoti hai. Genuine substitutable types mein inheritance useful hai; deep hierarchy tracing mushkil karti hai."
+      },
+      {
+        "question": "How would you investigate a subclass that breaks callers?",
+        "english": "Check whether it violates the base contract through stronger preconditions, weaker results or unexpected side effects. Replace the inheritance relationship if the subtype cannot honor the expected behavior.",
+        "hinglish": "Dekho subclass stronger preconditions, weaker results ya extra side effects se base contract tod toh nahi raha. Expected behavior honor nahi hota toh inheritance relation badlo."
+      }
+    ]
+  },
+  {
+    "id": "skill-system-design",
+    "name": "System Design",
+    "category": "Concepts",
+    "reference": "https://aws.amazon.com/architecture/well-architected/",
+    "evidence": "MailLoop campaign/billing flows, PurePin request pipeline and BuzzLine chat are architecture case studies in the 12 source-backed lessons; production scale is not verified.",
+    "english": [
+      "Start with functional requirements, expected traffic, latency targets and failure tolerance. State assumptions explicitly before choosing databases, queues or caching; the projects do not prove a claimed production scale.",
+      "A queue decouples acceptance from completion, allowing bounded workers and retries. It introduces eventual completion and duplicate or failed work that needs status tracking and idempotency.",
+      "Using MailLoop as a case study, separate validated campaign creation, durable dispatch, provider calls and outcome reconciliation. Track accepted, failed and uncertain states instead of claiming instant delivery.",
+      "Caching can reduce latency and upstream traffic, but data may become stale or unsafe to share across users. Define keys, TTL, invalidation and authorization boundaries before introducing it."
+    ],
+    "hinglish": [
+      "Pehle requirements, expected traffic, latency aur failure tolerance samjho. Database, queue ya cache choose karne se pehle assumptions bolo; projects claimed production scale prove nahi karte.",
+      "Queue acceptance aur completion alag karti hai, bounded workers aur retries deti hai. Eventual completion aur duplicate/failed work ko status tracking aur idempotency chahiye.",
+      "MailLoop case study mein validated campaign creation, durable dispatch, provider calls aur reconciliation alag rakho. Accepted, failed aur uncertain states track karo, instant delivery claim mat karo.",
+      "Caching latency aur upstream traffic ghatati hai, par stale ya cross-user unsafe data ho sakta hai. Keys, TTL, invalidation aur authorization boundaries pehle define karo."
+    ],
+    "questions": [
+      {
+        "question": "Where should a system design discussion begin?",
+        "english": "Start with functional requirements, expected traffic, latency targets and failure tolerance. State assumptions explicitly before choosing databases, queues or caching; the projects do not prove a claimed production scale.",
+        "hinglish": "Pehle requirements, expected traffic, latency aur failure tolerance samjho. Database, queue ya cache choose karne se pehle assumptions bolo; projects claimed production scale prove nahi karte."
+      },
+      {
+        "question": "How do queues change request processing?",
+        "english": "A queue decouples acceptance from completion, allowing bounded workers and retries. It introduces eventual completion and duplicate or failed work that needs status tracking and idempotency.",
+        "hinglish": "Queue acceptance aur completion alag karti hai, bounded workers aur retries deti hai. Eventual completion aur duplicate/failed work ko status tracking aur idempotency chahiye."
+      },
+      {
+        "question": "How would you design a reliable outreach flow?",
+        "english": "Using MailLoop as a case study, separate validated campaign creation, durable dispatch, provider calls and outcome reconciliation. Track accepted, failed and uncertain states instead of claiming instant delivery.",
+        "hinglish": "MailLoop case study mein validated campaign creation, durable dispatch, provider calls aur reconciliation alag rakho. Accepted, failed aur uncertain states track karo, instant delivery claim mat karo."
+      },
+      {
+        "question": "What tradeoff comes with caching downloader results?",
+        "english": "Caching can reduce latency and upstream traffic, but data may become stale or unsafe to share across users. Define keys, TTL, invalidation and authorization boundaries before introducing it.",
+        "hinglish": "Caching latency aur upstream traffic ghatati hai, par stale ya cross-user unsafe data ho sakta hai. Keys, TTL, invalidation aur authorization boundaries pehle define karo."
+      },
+      {
+        "question": "How would you find a bottleneck before scaling everything?",
+        "english": "Measure request latency, database time, queue age and provider failures. Identify the saturated resource and test a targeted change; adding servers cannot fix a single shared rate limit.",
+        "hinglish": "Latency, DB time, queue age aur provider failures measure karo. Saturated resource pe targeted change test karo; shared rate limit ko extra servers fix nahi karte."
+      }
+    ]
+  },
+  {
+    "id": "skill-websockets",
+    "name": "WebSockets",
+    "category": "Concepts",
+    "reference": "https://www.rfc-editor.org/rfc/rfc6455",
+    "evidence": "BuzzLine uses Socket.IO, which can use WebSocket transport; raw WebSocket application implementation is not verified.",
+    "english": [
+      "WebSocket provides a persistent, bidirectional framed connection after a handshake. It does not define chat rooms, reconnect policy or durable message history; BuzzLine uses Socket.IO above a transport layer.",
+      "A classic WebSocket connection starts with an HTTP upgrade handshake, then uses WebSocket frames. Later communication is not a sequence of ordinary REST requests; secure deployments use wss.",
+      "Illustrative design: authenticate the connection, validate origins as appropriate, authorize each room and message, validate payloads and enforce rate limits. A persistent connection does not remove trust boundaries.",
+      "Polling can suit infrequent updates; server-sent events suit server-to-client streams over HTTP. WebSocket suits bidirectional interaction but needs connection management and recovery design."
+    ],
+    "hinglish": [
+      "WebSocket handshake ke baad persistent bidirectional framed connection deta hai. Chat rooms, reconnect policy aur durable history define nahi karta; BuzzLine Socket.IO layer use karta hai.",
+      "Classic connection HTTP upgrade handshake se start hota hai, phir WebSocket frames use karta hai. Baad ka traffic normal REST requests nahi; secure deployment mein wss use karo.",
+      "Sample design mein connection auth, suitable origin validation, har room/message authorization, payload validation aur rate limits rakho. Persistent connection trust boundaries nahi hatata.",
+      "Infrequent updates mein polling simple ho sakti hai; server-to-client stream ke liye SSE useful hai. Bidirectional interaction mein WebSocket useful par management aur recovery design chahiye."
+    ],
+    "questions": [
+      {
+        "question": "What does the WebSocket protocol provide?",
+        "english": "WebSocket provides a persistent, bidirectional framed connection after a handshake. It does not define chat rooms, reconnect policy or durable message history; BuzzLine uses Socket.IO above a transport layer.",
+        "hinglish": "WebSocket handshake ke baad persistent bidirectional framed connection deta hai. Chat rooms, reconnect policy aur durable history define nahi karta; BuzzLine Socket.IO layer use karta hai."
+      },
+      {
+        "question": "How does the handshake relate to HTTP?",
+        "english": "A classic WebSocket connection starts with an HTTP upgrade handshake, then uses WebSocket frames. Later communication is not a sequence of ordinary REST requests; secure deployments use wss.",
+        "hinglish": "Classic connection HTTP upgrade handshake se start hota hai, phir WebSocket frames use karta hai. Baad ka traffic normal REST requests nahi; secure deployment mein wss use karo."
+      },
+      {
+        "question": "How would you secure a live chat channel?",
+        "english": "Illustrative design: authenticate the connection, validate origins as appropriate, authorize each room and message, validate payloads and enforce rate limits. A persistent connection does not remove trust boundaries.",
+        "hinglish": "Sample design mein connection auth, suitable origin validation, har room/message authorization, payload validation aur rate limits rakho. Persistent connection trust boundaries nahi hatata."
+      },
+      {
+        "question": "When would polling or server-sent events be simpler?",
+        "english": "Polling can suit infrequent updates; server-sent events suit server-to-client streams over HTTP. WebSocket suits bidirectional interaction but needs connection management and recovery design.",
+        "hinglish": "Infrequent updates mein polling simple ho sakti hai; server-to-client stream ke liye SSE useful hai. Bidirectional interaction mein WebSocket useful par management aur recovery design chahiye."
+      },
+      {
+        "question": "How would you troubleshoot connections dropping behind a proxy?",
+        "english": "Inspect upgrade support, idle timeouts, heartbeat behavior and client/server logs. Reconnect with backoff and resynchronize application state; reconnection alone cannot recover unpersisted messages.",
+        "hinglish": "Upgrade support, idle timeout, heartbeat aur logs dekho. Backoff ke saath reconnect aur app state resync karo; unpersisted messages reconnect akela recover nahi karta."
+      }
+    ]
+  },
+  {
+    "id": "skill-project-management",
+    "name": "Project Management",
+    "category": "Soft Skills",
+    "reference": "https://www.pmi.org/about/learn-about-pmi/what-is-project-management",
+    "evidence": "Resume-listed; not verified in these three projects. All responses are hypothetical sample answers, not personal experiences.",
+    "english": [
+      "Sample answer: I would clarify the user outcome, acceptance criteria and deadline, then split the work into reviewable milestones. I would list assumptions rather than invent certainty about scope.",
+      "Sample answer: I would map the dependency, agree on a contract and owner, and use a mock only for independent UI work. I would keep integration risk visible and schedule an early contract check.",
+      "Sample answer: I would show remaining effort and risks, then propose a smaller useful release with explicit deferred items. I would seek agreement on the tradeoff instead of silently dropping requirements.",
+      "Sample answer: I would plan enough to expose dependencies and risk, then update the plan as evidence changes. Detailed estimates for distant unknown work can create false precision and waste time."
+    ],
+    "hinglish": [
+      "Sample answer: Main user outcome, acceptance criteria aur deadline clear karke reviewable milestones banaunga. Scope par fake certainty ke badle assumptions likhunga.",
+      "Sample answer: Dependency, contract aur owner agree karunga. Independent UI ke liye mock use, integration risk visible aur early contract check schedule karunga.",
+      "Sample answer: Remaining effort aur risks dikha kar smaller useful release aur deferred items propose karunga. Requirements chupke drop karne ke badle tradeoff par agreement loonga.",
+      "Sample answer: Dependencies aur risk dikhne jitna plan banaunga, evidence badalne par update karunga. Door ke unknown work ki exact estimates false precision aur wasted time la sakti hain."
+    ],
+    "questions": [
+      {
+        "question": "A feature request is vague. How would you start?",
+        "english": "Sample answer: I would clarify the user outcome, acceptance criteria and deadline, then split the work into reviewable milestones. I would list assumptions rather than invent certainty about scope.",
+        "hinglish": "Sample answer: Main user outcome, acceptance criteria aur deadline clear karke reviewable milestones banaunga. Scope par fake certainty ke badle assumptions likhunga."
+      },
+      {
+        "question": "Two tasks depend on another team's API. How would you plan?",
+        "english": "Sample answer: I would map the dependency, agree on a contract and owner, and use a mock only for independent UI work. I would keep integration risk visible and schedule an early contract check.",
+        "hinglish": "Sample answer: Dependency, contract aur owner agree karunga. Independent UI ke liye mock use, integration risk visible aur early contract check schedule karunga."
+      },
+      {
+        "question": "A deadline approaches with unfinished scope. What would you propose?",
+        "english": "Sample answer: I would show remaining effort and risks, then propose a smaller useful release with explicit deferred items. I would seek agreement on the tradeoff instead of silently dropping requirements.",
+        "hinglish": "Sample answer: Remaining effort aur risks dikha kar smaller useful release aur deferred items propose karunga. Requirements chupke drop karne ke badle tradeoff par agreement loonga."
+      },
+      {
+        "question": "How would you balance planning effort against execution?",
+        "english": "Sample answer: I would plan enough to expose dependencies and risk, then update the plan as evidence changes. Detailed estimates for distant unknown work can create false precision and waste time.",
+        "hinglish": "Sample answer: Dependencies aur risk dikhne jitna plan banaunga, evidence badalne par update karunga. Door ke unknown work ki exact estimates false precision aur wasted time la sakti hain."
+      },
+      {
+        "question": "A milestone slips. How would you respond?",
+        "english": "Sample answer: I would identify the cause, communicate the revised impact promptly and propose recovery options with owners. I would compare estimates with actual work to improve the next plan without assigning blame.",
+        "hinglish": "Sample answer: Cause identify, revised impact jaldi communicate aur owner ke saath recovery options doonga. Blame ke badle estimates aur actual work compare karke next plan improve karunga."
+      }
+    ]
+  },
+  {
+    "id": "skill-collaboration",
+    "name": "Collaboration",
+    "category": "Soft Skills",
+    "reference": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests",
+    "evidence": "Resume-listed; not verified in these three projects. All responses are hypothetical sample answers, not personal experiences.",
+    "english": [
+      "Sample answer: I would ask which requirement or risk drives the disagreement, restate the shared goal and compare options using evidence. I would avoid treating personal preference as a technical requirement.",
+      "Sample answer: I would document current behavior, decisions, open questions and how to verify the change, then confirm the receiving person can proceed. A link alone is not a complete handoff.",
+      "Sample answer: I would acknowledge the issue, reproduce the unauthorized access and add the server-side ownership check with focused verification. I would explain the final fix without defending a mistake for its own sake.",
+      "Sample answer: I would use a short discussion for ambiguous or blocked decisions, then record the decision in writing. Written review scales across time zones, but long unresolved threads can delay progress."
+    ],
+    "hinglish": [
+      "Sample answer: Main poochhunga disagreement kis requirement ya risk se hai, shared goal restate aur evidence se options compare karunga. Personal preference ko technical requirement nahi banaunga.",
+      "Sample answer: Current behavior, decisions, open questions aur verification steps document karke confirm karunga ki teammate proceed kar sakta hai. Sirf link bhejna complete handoff nahi.",
+      "Sample answer: Issue acknowledge, unauthorized access reproduce aur server ownership check focused verification ke saath add karunga. Galti defend karne ke badle final fix samjhaunga.",
+      "Sample answer: Ambiguous ya blocked decision ke liye short discussion, phir written record rakhoonga. Written review time zones mein useful hai, par unresolved long thread progress rok sakti hai."
+    ],
+    "questions": [
+      {
+        "question": "A teammate disagrees with your design. What would you do?",
+        "english": "Sample answer: I would ask which requirement or risk drives the disagreement, restate the shared goal and compare options using evidence. I would avoid treating personal preference as a technical requirement.",
+        "hinglish": "Sample answer: Main poochhunga disagreement kis requirement ya risk se hai, shared goal restate aur evidence se options compare karunga. Personal preference ko technical requirement nahi banaunga."
+      },
+      {
+        "question": "How would you make a handoff understandable?",
+        "english": "Sample answer: I would document current behavior, decisions, open questions and how to verify the change, then confirm the receiving person can proceed. A link alone is not a complete handoff.",
+        "hinglish": "Sample answer: Current behavior, decisions, open questions aur verification steps document karke confirm karunga ki teammate proceed kar sakta hai. Sirf link bhejna complete handoff nahi."
+      },
+      {
+        "question": "A reviewer finds an ownership bug in your patch. How would you reply?",
+        "english": "Sample answer: I would acknowledge the issue, reproduce the unauthorized access and add the server-side ownership check with focused verification. I would explain the final fix without defending a mistake for its own sake.",
+        "hinglish": "Sample answer: Issue acknowledge, unauthorized access reproduce aur server ownership check focused verification ke saath add karunga. Galti defend karne ke badle final fix samjhaunga."
+      },
+      {
+        "question": "When would you choose synchronous discussion over written review?",
+        "english": "Sample answer: I would use a short discussion for ambiguous or blocked decisions, then record the decision in writing. Written review scales across time zones, but long unresolved threads can delay progress.",
+        "hinglish": "Sample answer: Ambiguous ya blocked decision ke liye short discussion, phir written record rakhoonga. Written review time zones mein useful hai, par unresolved long thread progress rok sakti hai."
+      },
+      {
+        "question": "Two teammates edit the same module and integration breaks. What next?",
+        "english": "Sample answer: I would compare both intended behaviors, agree on ownership of the repair and test the combined flow. I would improve interface communication rather than assuming either teammate was careless.",
+        "hinglish": "Sample answer: Dono intended behaviors compare, repair owner agree aur combined flow test karunga. Kisi ko careless kehne ke badle interface communication improve karunga."
+      }
+    ]
+  },
+  {
+    "id": "skill-agility",
+    "name": "Agility",
+    "category": "Soft Skills",
+    "reference": "https://agilemanifesto.org/principles.html",
+    "evidence": "Resume-listed; not verified in these three projects. All responses are hypothetical sample answers, not personal experiences.",
+    "english": [
+      "Sample answer: I would clarify why the outcome changed, assess affected work and agree on a revised priority. Agility means adapting responsibly, not accepting unlimited scope without discussing cost.",
+      "Sample answer: I would deliver a small usable slice, define what feedback it tests and review it early with stakeholders. I would keep completion criteria visible so iteration still produces reliable increments.",
+      "Sample answer: I would separate must-have behavior from optional features, evaluate a safe fallback and communicate limitations. I would use an explicit unavailable state rather than pretending the provider succeeded.",
+      "Sample answer: I would resist when the change bypasses essential authorization or data integrity checks, explain the concrete risk and propose a narrower safe alternative. Urgency does not remove accountability."
+    ],
+    "hinglish": [
+      "Sample answer: Outcome kyun badla, affected work aur revised priority clear karunga. Agility responsible adaptation hai; cost discuss kiye bina unlimited scope accept karna nahi.",
+      "Sample answer: Small usable slice aur uska feedback goal define karke early review loonga. Completion criteria visible rakhoonga taaki iteration reliable increment de.",
+      "Sample answer: Must-have aur optional behavior alag, safe fallback evaluate aur limitations communicate karunga. Provider success pretend karne ke badle explicit unavailable state doonga.",
+      "Sample answer: Essential authorization ya data integrity bypass ho rahi ho toh concrete risk samjha kar narrower safe option doonga. Urgency accountability nahi hatati."
+    ],
+    "questions": [
+      {
+        "question": "A requirement changes mid-sprint. How would you react?",
+        "english": "Sample answer: I would clarify why the outcome changed, assess affected work and agree on a revised priority. Agility means adapting responsibly, not accepting unlimited scope without discussing cost.",
+        "hinglish": "Sample answer: Outcome kyun badla, affected work aur revised priority clear karunga. Agility responsible adaptation hai; cost discuss kiye bina unlimited scope accept karna nahi."
+      },
+      {
+        "question": "How would you shorten feedback cycles?",
+        "english": "Sample answer: I would deliver a small usable slice, define what feedback it tests and review it early with stakeholders. I would keep completion criteria visible so iteration still produces reliable increments.",
+        "hinglish": "Sample answer: Small usable slice aur uska feedback goal define karke early review loonga. Completion criteria visible rakhoonga taaki iteration reliable increment de."
+      },
+      {
+        "question": "A provider API becomes unavailable before launch. What would you do?",
+        "english": "Sample answer: I would separate must-have behavior from optional features, evaluate a safe fallback and communicate limitations. I would use an explicit unavailable state rather than pretending the provider succeeded.",
+        "hinglish": "Sample answer: Must-have aur optional behavior alag, safe fallback evaluate aur limitations communicate karunga. Provider success pretend karne ke badle explicit unavailable state doonga."
+      },
+      {
+        "question": "When should a team resist an urgent change?",
+        "english": "Sample answer: I would resist when the change bypasses essential authorization or data integrity checks, explain the concrete risk and propose a narrower safe alternative. Urgency does not remove accountability.",
+        "hinglish": "Sample answer: Essential authorization ya data integrity bypass ho rahi ho toh concrete risk samjha kar narrower safe option doonga. Urgency accountability nahi hatati."
+      },
+      {
+        "question": "Repeated changes cause rework. How would you improve the process?",
+        "english": "Sample answer: I would review where assumptions were missed, introduce earlier validation and maintain a visible decision log. I would distinguish useful learning from preventable churn rather than banning all change.",
+        "hinglish": "Sample answer: Missed assumptions review, earlier validation aur visible decision log launga. Useful learning aur avoidable churn alag samjhoonga, saare changes ban nahi karunga."
+      }
+    ]
+  },
+  {
+    "id": "skill-fast-learning",
+    "name": "Fast Learning",
+    "category": "Soft Skills",
+    "reference": "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/",
+    "evidence": "Resume-listed; not verified in these three projects. All responses are hypothetical sample answers, not personal experiences.",
+    "english": [
+      "Sample answer: I would identify the smallest required task, read the installed version's official quickstart and build a minimal working example. I would separate what I verified from what I only skimmed.",
+      "Sample answer: I would explain it without notes, predict an edge case and test the prediction. If the result differed, I would update my model instead of memorizing the observed output alone.",
+      "Sample answer: I would inspect the installed version, trace one login and protected action, then compare the relevant official API. I would avoid mixing v4 examples with v5 beta configuration.",
+      "Sample answer: I would learn enough to complete the bounded task safely and document remaining gaps, then deepen the risky parts. Fast learning is not claiming mastery after one tutorial."
+    ],
+    "hinglish": [
+      "Sample answer: Smallest required task identify, installed version ka official quickstart aur minimal working example banaoonga. Verified knowledge aur skimmed information alag rakhoonga.",
+      "Sample answer: Notes ke bina mechanism samjhaunga, edge case predict aur test karunga. Result alag ho toh mental model update karunga, sirf output memorize nahi.",
+      "Sample answer: Installed version, ek login aur protected action trace karke relevant official API compare karunga. v4 example aur v5 beta config mix nahi karunga.",
+      "Sample answer: Bounded task safely complete karne jitna seekh kar gaps document, phir risky parts detail mein samjhoonga. Ek tutorial ke baad mastery claim karna fast learning nahi."
+    ],
+    "questions": [
+      {
+        "question": "You need an unfamiliar library tomorrow. How would you begin?",
+        "english": "Sample answer: I would identify the smallest required task, read the installed version's official quickstart and build a minimal working example. I would separate what I verified from what I only skimmed.",
+        "hinglish": "Sample answer: Smallest required task identify, installed version ka official quickstart aur minimal working example banaoonga. Verified knowledge aur skimmed information alag rakhoonga."
+      },
+      {
+        "question": "How would you check whether you understood a mechanism?",
+        "english": "Sample answer: I would explain it without notes, predict an edge case and test the prediction. If the result differed, I would update my model instead of memorizing the observed output alone.",
+        "hinglish": "Sample answer: Notes ke bina mechanism samjhaunga, edge case predict aur test karunga. Result alag ho toh mental model update karunga, sirf output memorize nahi."
+      },
+      {
+        "question": "How would you learn Auth.js for an existing project?",
+        "english": "Sample answer: I would inspect the installed version, trace one login and protected action, then compare the relevant official API. I would avoid mixing v4 examples with v5 beta configuration.",
+        "hinglish": "Sample answer: Installed version, ek login aur protected action trace karke relevant official API compare karunga. v4 example aur v5 beta config mix nahi karunga."
+      },
+      {
+        "question": "How would you balance speed with depth?",
+        "english": "Sample answer: I would learn enough to complete the bounded task safely and document remaining gaps, then deepen the risky parts. Fast learning is not claiming mastery after one tutorial.",
+        "hinglish": "Sample answer: Bounded task safely complete karne jitna seekh kar gaps document, phir risky parts detail mein samjhoonga. Ek tutorial ke baad mastery claim karna fast learning nahi."
+      },
+      {
+        "question": "A tutorial's example fails in your repository. What would you check?",
+        "english": "Sample answer: I would compare versions, runtime assumptions and configuration, reduce the failure to a minimal case and consult the matching official reference. I would record the fix for future use.",
+        "hinglish": "Sample answer: Versions, runtime assumptions aur config compare, failure minimal case mein reduce aur matching official reference dekhoonga. Fix future use ke liye record karunga."
+      }
+    ]
+  }
+]
